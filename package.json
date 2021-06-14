@@ -1,0 +1,14 @@
+{
+  "name": "cscheckin-js-sdk",
+  "description": "The JavaScript SDK for cscheckin (browser-only)",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "pan93412",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "myzod": "^1.7.4"
+  }
+}

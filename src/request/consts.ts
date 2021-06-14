@@ -1,0 +1,1 @@
+export const userAgent = "cscheckin-js-sdk/std-1.0"
