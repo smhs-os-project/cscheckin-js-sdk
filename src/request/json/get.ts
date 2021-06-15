@@ -1,9 +1,5 @@
-import { userAgent } from "../consts";
+import BaseGetJson from "./get_base";
 
 export default function GetJson(url: RequestInfo): Promise<Response> {
-    return fetch(url, {
-        headers: {
-            "User-Agent": userAgent,
-        },
-    })
+    return BaseGetJson(url, {});
 }
