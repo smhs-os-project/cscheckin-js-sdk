@@ -7,6 +7,6 @@ import { ShareResponseSchema } from "../../types/course/resp_share";
  * 
  * @returns the link sent
  */
- export default async function GetShareLink(courseId: string, auth: CSCAuth) {
+ export default async function ShareToClassroom(courseId: string, auth: CSCAuth) {
     return PostAuthMethod(`/course/share/${courseId}/post`, {}, auth, ShareResponseSchema);
 }
