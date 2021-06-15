@@ -1,11 +1,14 @@
 import CSCAuth from "../../auth";
-import { AuthTokenResponse } from "../../types/auth/resp_auth_token";
+import BuildUri from "../../request/build_uri";
+import GetJsonAuth from "../../request/json/get_auth";
 
 /**
  * Set the identity of @param auth.
  * 
  * @returns Is it success?
  */
-export default function SetIdentity(auth: CSCAuth): boolean {
-    throw new Error("not implemented");
+export default async function SetIdentity(auth: CSCAuth): Promise<boolean> {
+    const response = await GetJsonAuth(BuildUri("/auth/user"), auth);
+
+    return response?.ok ?? false;
 }
