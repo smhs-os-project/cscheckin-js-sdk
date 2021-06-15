@@ -1,0 +1,1 @@
+{"version":3,"file":"resp_org_info.js","sourceRoot":"","sources":["../../../src/types/org_info/resp_org_info.ts"],"names":[],"mappings":";;;;;;AAAA,kDAAsC;AAEzB,QAAA,qBAAqB,GAAG,eAAK,CAAC,MAAM,CAAC;IAC9C,SAAS,EAAE,eAAK,CAAC,MAAM,EAAE;IACzB,YAAY,EAAE,eAAK,CAAC,MAAM,EAAE;CAC/B,CAAC,CAAC;AAEU,QAAA,yBAAyB,GAAG,eAAK,CAAC,KAAK,CAAC,6BAAqB,CAAC,CAAC"}

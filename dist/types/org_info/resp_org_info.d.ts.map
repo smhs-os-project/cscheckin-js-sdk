@@ -1,0 +1,1 @@
+{"version":3,"file":"resp_org_info.d.ts","sourceRoot":"","sources":["../../../src/types/org_info/resp_org_info.ts"],"names":[],"mappings":"AAAA,OAAc,EAAE,KAAK,EAAE,MAAO,OAAO,CAAC;AAEtC,eAAO,MAAM,qBAAqB;;;EAGhC,CAAC;AAEH,eAAO,MAAM,yBAAyB;;;GAAqC,CAAC;AAE5E,oBAAY,eAAe,GAAG,KAAK,CAAC,OAAO,qBAAqB,CAAC,CAAC;AAClE,oBAAY,mBAAmB,GAAG,KAAK,CAAC,OAAO,yBAAyB,CAAC,CAAC"}

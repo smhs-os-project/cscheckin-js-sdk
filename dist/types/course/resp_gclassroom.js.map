@@ -1,0 +1,1 @@
+{"version":3,"file":"resp_gclassroom.js","sourceRoot":"","sources":["../../../src/types/course/resp_gclassroom.ts"],"names":[],"mappings":";;;;;;AAAA,kDAAqC;AAExB,QAAA,wBAAwB,GAAG,eAAK,CAAC,MAAM,CAAC;IACjD,mBAAmB,EAAE,eAAK,CAAC,MAAM,EAAE;IACnC,IAAI,EAAE,eAAK,CAAC,MAAM,EAAE;CACvB,CAAC,CAAC;AACU,QAAA,4BAA4B,GAAG,eAAK,CAAC,KAAK,CAAC,gCAAwB,CAAC,CAAC"}

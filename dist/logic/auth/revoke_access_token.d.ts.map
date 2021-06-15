@@ -1,0 +1,1 @@
+{"version":3,"file":"revoke_access_token.d.ts","sourceRoot":"","sources":["../../../src/logic/auth/revoke_access_token.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,YAAY,CAAC;AAIjC;;;;GAIG;AACH,wBAA8B,iBAAiB,CAAC,IAAI,EAAE,OAAO,GAAG,OAAO,CAAC,OAAO,CAAC,CAI/E"}

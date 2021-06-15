@@ -1,0 +1,1 @@
+{"version":3,"file":"req_auth_ident.js","sourceRoot":"","sources":["../../../src/types/auth/req_auth_ident.ts"],"names":[],"mappings":";;;;;;AAAA,kDAAqC;AAExB,QAAA,sBAAsB,GAAG,eAAK,CAAC,MAAM,CAAC;IAC/C,KAAK,EAAE,eAAK,CAAC,MAAM,EAAE;IACrB,MAAM,EAAE,eAAK,CAAC,MAAM,EAAE;CACzB,CAAC,CAAC"}
