@@ -1,6 +1,7 @@
 import CSCAuth from "../../auth";
-import { TeacherCheckinListResponse } from "../../types/teacher/resp_checkin_list";
+import GetAuthMethod from "../../request/encapsulation/get_auth_method";
+import { TeacherCheckinListResponseSchema } from "../../types/teacher/resp_checkin_list";
 
-export default function CheckinList(id: string, auth: CSCAuth): TeacherCheckinListResponse {
-    throw new Error("not implemented");
+export default async function CheckinList(courseId: string, auth: CSCAuth) {
+    return GetAuthMethod(`/checkin/${courseId}`, auth, TeacherCheckinListResponseSchema);
 }
