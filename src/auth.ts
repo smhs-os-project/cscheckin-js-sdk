@@ -1,9 +1,16 @@
+import myzod, { Infer } from "myzod";
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
 import SetIdentity from "./logic/auth/set_ident";
 import { Organization } from "./types/auth/req_auth_token";
 import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_auth_token";
 import { AuthUserResponse } from "./types/auth/resp_auth_user";
+
+export const CSCAuthExportStructure = myzod.object({
+    organization: myzod.enum(Organization),
+    gIdToken: myzod.string(),
+    gAccessToken: myzod.string(),
+});
 
 export default class CSCAuth {
     private accessData: AuthTokenResponse | null = null;
@@ -44,5 +51,23 @@ export default class CSCAuth {
 
     async setIdentity(userClass: number, userNo: number): Promise<boolean> {
         return SetIdentity({ class: userClass, number: userNo }, this);
+    }
+
+    static import(data: string): CSCAuth | null {
+        const deserialized = CSCAuthExportStructure.try(
+            JSON.parse(data)
+        );
+        if (deserialized instanceof ValidationError) return null;
+     
+        const { organization, gAccessToken, gIdToken } = deserialized;
+        return new CSCAuth(organization, gAccessToken, gIdToken);
+    }
+
+    export(): Infer<typeof CSCAuthExportStructure> {
+        return {
+            organization: this.organization,
+            gAccessToken: this.gAccessToken,
+            gIdToken: this.gIdToken,
+        };
     }
 }
