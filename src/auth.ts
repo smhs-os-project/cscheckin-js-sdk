@@ -1,4 +1,4 @@
-import myzod, { Infer } from "myzod";
+import myzod from "myzod";
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
 import SetIdentity from "./logic/auth/set_ident";
@@ -63,11 +63,11 @@ export default class CSCAuth {
         return new CSCAuth(organization, gAccessToken, gIdToken);
     }
 
-    export(): Infer<typeof CSCAuthExportStructure> {
-        return {
+    export(): string {
+        return JSON.stringify({
             organization: this.organization,
             gAccessToken: this.gAccessToken,
             gIdToken: this.gIdToken,
-        };
+        });
     }
 }
