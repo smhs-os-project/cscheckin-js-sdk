@@ -1,6 +1,7 @@
 import type CSCAuth from "../../auth";
-import { StudentCheckinResponse } from "../../types/student/resp_checkin";
+import PostAuthMethod from "../../request/encapsulation/post_auth_method";
+import { StudentCheckinResponseSchema } from "../../types/student/resp_checkin";
 
-export default function Checkin(id: string, auth: CSCAuth): StudentCheckinResponse {
-    throw new Error("not implemented");
+export default async function Checkin(checkinId: string, auth: CSCAuth) {
+    return PostAuthMethod(`/checkin/${checkinId}`, {}, auth, StudentCheckinResponseSchema);
 }
