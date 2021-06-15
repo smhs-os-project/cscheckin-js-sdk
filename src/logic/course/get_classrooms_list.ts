@@ -1,10 +1,10 @@
 import CSCAuth from "../../auth";
+import GetAuthMethod from "../../request/encapsulation/get_auth_method";
+import { GClassroomListResponseSchema } from "../../types/course/resp_gclassroom";
 
 /**
  * Get the available classrooms.
- * 
- * @returns Is it success?
  */
-export default function GetClassroomsList(auth: CSCAuth): boolean {
-    throw new Error("not implemented");
+ export default async function GetClassroomsList(auth: CSCAuth) {
+    return GetAuthMethod("/course/google", auth, GClassroomListResponseSchema);
 }
