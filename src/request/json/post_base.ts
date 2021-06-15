@@ -1,3 +1,4 @@
+import "../polyfill";
 import { userAgent } from "../consts";
 
 export default function BasePostJson<T extends object>(url: RequestInfo, data: T, { headers, body, ...init }: RequestInit): Promise<Response> {
