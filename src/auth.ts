@@ -10,6 +10,7 @@ export const CSCAuthExportStructure = myzod.object({
     organization: myzod.enum(Organization),
     gIdToken: myzod.string(),
     gAccessToken: myzod.string(),
+    accessData: AuthTokenResponseSchema.optional(),
 });
 
 export default class CSCAuth {
@@ -59,8 +60,11 @@ export default class CSCAuth {
         );
         if (deserialized instanceof ValidationError) return null;
      
-        const { organization, gAccessToken, gIdToken } = deserialized;
-        return new CSCAuth(organization, gAccessToken, gIdToken);
+        const { organization, gAccessToken, gIdToken, accessData } = deserialized;
+        const auth = new CSCAuth(organization, gAccessToken, gIdToken);
+        auth.accessData = accessData || null;
+
+        return auth;
     }
 
     export(): string {
@@ -68,6 +72,7 @@ export default class CSCAuth {
             organization: this.organization,
             gAccessToken: this.gAccessToken,
             gIdToken: this.gIdToken,
+            accessData: this.accessData,
         });
     }
 }
