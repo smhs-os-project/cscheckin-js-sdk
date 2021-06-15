@@ -63,11 +63,11 @@ class CSCAuth {
         return new CSCAuth(organization, gAccessToken, gIdToken);
     }
     export() {
-        return {
+        return JSON.stringify({
             organization: this.organization,
             gAccessToken: this.gAccessToken,
             gIdToken: this.gIdToken,
-        };
+        });
     }
 }
 exports.default = CSCAuth;
