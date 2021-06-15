@@ -1,25 +1,14 @@
 import myzod, { Infer } from "myzod";
-
-export const AuthTokenUserResponseSchema = myzod.object({
-    id: myzod.number(),
-    google_user_id: myzod.string(),
-    domain: myzod.string(),
-    name: myzod.string(),
-    email: myzod.string(),
-    photo: myzod.string(),
-    created_at: myzod.string(),
-    updated_at: myzod.string(),
-});
+import { AuthUserResponseSchema } from "./resp_auth_user";
 
 export const AuthTokenResponseSchema = myzod.object({
-    accessToken: myzod.string(),
-    tokenType: myzod.string(),
+    access_token: myzod.string(),
+    token_type: myzod.string(),
     /**
-     * exp: timestamp
+     * `exp` is an unix timestamp.
      */
     exp: myzod.number(),
-    user: AuthTokenUserResponseSchema,
+    user: AuthUserResponseSchema,
 });
 
-export type AuthTokenUserResponse = Infer<typeof AuthTokenUserResponseSchema>;
 export type AuthTokenResponse = Infer<typeof AuthTokenResponseSchema>;
