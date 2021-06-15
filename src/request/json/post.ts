@@ -1,11 +1,5 @@
-import { userAgent } from "../consts";
+import BasePostJson from "./post_base";
 
 export default function PostJson<T extends object>(url: RequestInfo, data: T): Promise<Response> {
-    return fetch(url, {
-        headers: {
-            "Content-Type": "application/json",
-            "User-Agent": userAgent,
-        },
-        body: JSON.stringify(data),
-    })
+    return BasePostJson(url, data, {});
 }
