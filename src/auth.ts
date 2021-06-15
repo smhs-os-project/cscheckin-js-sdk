@@ -1,6 +1,8 @@
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
+import SetIdentity from "./logic/auth/set_ident";
 import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_auth_token";
+import { AuthUserResponse } from "./types/auth/resp_auth_user";
 
 export default class CSCAuth {
     private accessData: AuthTokenResponse | null = null;
@@ -31,5 +33,15 @@ export default class CSCAuth {
         const accessData = await this.getAccessData();
         if (accessData) return `Bearer ${accessData.access_token}`;
         return null;
+    }
+
+    async userInfo(): Promise<AuthUserResponse | null> {
+        const accessData = await this.getAccessData();
+        if (accessData) return accessData.user;
+        return null;
+    }
+
+    async setIdentity(userClass: number, userNo: number): Promise<boolean> {
+        return SetIdentity({ class: userClass, number: userNo }, this);
     }
 }
