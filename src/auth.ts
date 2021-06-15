@@ -1,13 +1,14 @@
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
 import SetIdentity from "./logic/auth/set_ident";
+import { Organization } from "./types/auth/req_auth_token";
 import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_auth_token";
 import { AuthUserResponse } from "./types/auth/resp_auth_user";
 
 export default class CSCAuth {
     private accessData: AuthTokenResponse | null = null;
 
-    constructor(private organization: string, private gIdToken: string, private gAccessToken: string) {}
+    constructor(private organization: Organization, private gIdToken: string, private gAccessToken: string) {}
 
     async getAccessData(): Promise<AuthTokenResponse | null> {
         // get lazily
