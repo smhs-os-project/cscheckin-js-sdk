@@ -5,12 +5,12 @@ import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_au
 export default class CSCAuth {
     private accessData: AuthTokenResponse | null = null;
 
-    constructor(private gIdToken: string, private gAccessToken: string) {}
+    constructor(private organization: string, private gIdToken: string, private gAccessToken: string) {}
 
     async getAccessData(): Promise<AuthTokenResponse | null> {
         // get lazily
         if (!this.accessData) {
-            const accessData = await GetAccessToken({
+            const accessData = await GetAccessToken(this.organization, {
                 id_token: this.gIdToken,
                 access_token: this.gAccessToken
             });
