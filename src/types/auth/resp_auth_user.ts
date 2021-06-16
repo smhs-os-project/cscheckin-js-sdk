@@ -1,4 +1,5 @@
 import myzod, { Infer } from "myzod";
+import { AuthIdentRequestSchema } from "./req_auth_ident";
 
 export const AuthUserResponseSchema = myzod.object({
     id: myzod.number(),
@@ -9,6 +10,7 @@ export const AuthUserResponseSchema = myzod.object({
     photo: myzod.string(),
     created_at: myzod.string(),
     updated_at: myzod.string(),
+    student: AuthIdentRequestSchema.optional(),
 });
 
 export type AuthUserResponse = Infer<typeof AuthUserResponseSchema>;
