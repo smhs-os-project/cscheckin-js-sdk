@@ -1,4 +1,5 @@
 import myzod, { Infer } from "myzod";
+import { timePlusPattern } from "../../utilities/is_after";
 
 export const CourseResponseSchema = myzod.object({
     id: myzod.number(),
@@ -6,8 +7,8 @@ export const CourseResponseSchema = myzod.object({
     name: myzod.string(),
     teacher_id: myzod.number(),
     start_timestamp: myzod.date(),
-    late_time: myzod.string(),
-    expire_time: myzod.string(),
+    late_time: myzod.string().pattern(timePlusPattern),
+    expire_time: myzod.string().pattern(timePlusPattern),
     uuid: myzod.string(),
     created_at: myzod.string(),
     updated_at: myzod.string(),
