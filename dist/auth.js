@@ -7,6 +7,7 @@ exports.CSCAuthExportStructure = void 0;
 const myzod_1 = __importDefault(require("myzod"));
 const myzod_2 = require("myzod");
 const get_access_token_1 = __importDefault(require("./logic/auth/get_access_token"));
+const revoke_access_token_1 = __importDefault(require("./logic/auth/revoke_access_token"));
 const set_ident_1 = __importDefault(require("./logic/auth/set_ident"));
 const req_auth_token_1 = require("./types/auth/req_auth_token");
 const resp_auth_token_1 = require("./types/auth/resp_auth_token");
@@ -55,6 +56,9 @@ class CSCAuth {
     }
     async setIdentity(userClass, userNo) {
         return set_ident_1.default({ class: userClass, number: userNo }, this);
+    }
+    async revoke() {
+        return revoke_access_token_1.default(this);
     }
     static import(data) {
         const deserialized = exports.CSCAuthExportStructure.try(JSON.parse(data));

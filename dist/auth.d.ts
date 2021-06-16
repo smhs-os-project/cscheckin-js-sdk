@@ -31,6 +31,7 @@ export default class CSCAuth {
     getAuthenticationHeader(): Promise<string | null>;
     userInfo(): Promise<AuthUserResponse | null>;
     setIdentity(userClass: number, userNo: number): Promise<boolean>;
+    revoke(): Promise<boolean>;
     static import(data: string): CSCAuth | null;
     export(): string;
 }
