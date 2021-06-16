@@ -15,6 +15,6 @@ import { CourseResponseSchema } from "../../types/course/resp_course";
  * });
  * ```
  */
-export default function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth) {
+export default async function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth) {
     return PostAuthMethod(`/course/${classroomId}`, request, auth, CourseResponseSchema);
 }
