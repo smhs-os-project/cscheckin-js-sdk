@@ -1,8 +1,7 @@
-import CSCAuth from "../../auth";
 /**
  * Get the info of specified course.
  */
-export default function GetCourse(courseUUID: string, auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
+export default function GetCourse(courseUUID: string): Promise<import("../../types/error/std_error").WouldFail<{
     id: number;
     name: string;
     created_at: string;
