@@ -14,6 +14,7 @@ exports.CSCAuthExportStructure = myzod_1.default.object({
     organization: myzod_1.default.enum(req_auth_token_1.Organization),
     gIdToken: myzod_1.default.string(),
     gAccessToken: myzod_1.default.string(),
+    accessData: resp_auth_token_1.AuthTokenResponseSchema.optional(),
 });
 class CSCAuth {
     constructor(organization, gIdToken, gAccessToken) {
@@ -59,14 +60,17 @@ class CSCAuth {
         const deserialized = exports.CSCAuthExportStructure.try(JSON.parse(data));
         if (deserialized instanceof myzod_2.ValidationError)
             return null;
-        const { organization, gAccessToken, gIdToken } = deserialized;
-        return new CSCAuth(organization, gAccessToken, gIdToken);
+        const { organization, gAccessToken, gIdToken, accessData } = deserialized;
+        const auth = new CSCAuth(organization, gAccessToken, gIdToken);
+        auth.accessData = accessData || null;
+        return auth;
     }
     export() {
         return JSON.stringify({
             organization: this.organization,
             gAccessToken: this.gAccessToken,
             gIdToken: this.gIdToken,
+            accessData: this.accessData,
         });
     }
 }
