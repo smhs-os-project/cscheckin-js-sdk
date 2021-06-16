@@ -5,6 +5,6 @@ import { CourseResponseSchema } from "../../types/course/resp_course";
 /**
  * Get the info of specified course.
  */
-export default async function GetCourse(courseId: string, auth: CSCAuth) {
-    return GetAuthMethod(`/course/${courseId}`, auth, CourseResponseSchema);
+export default async function GetCourse(courseUUID: string, auth: CSCAuth) {
+    return GetAuthMethod(`/course/${courseUUID}`, auth, CourseResponseSchema);
 }
