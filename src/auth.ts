@@ -36,7 +36,7 @@ export default class CSCAuth {
             }
         }
 
-        return null;
+        return this.accessData;
     }
 
     async getAuthenticationHeader(): Promise<string | null> {
