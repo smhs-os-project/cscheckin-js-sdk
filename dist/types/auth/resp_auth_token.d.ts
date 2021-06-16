@@ -15,6 +15,10 @@ export declare const AuthTokenResponseSchema: import("myzod/libs/types").ObjectT
         photo: import("myzod/libs/types").StringType;
         created_at: import("myzod/libs/types").StringType;
         updated_at: import("myzod/libs/types").StringType;
+        student: import("myzod/libs/types").OptionalType<import("myzod/libs/types").ObjectType<{
+            class: import("myzod/libs/types").NumberType;
+            number: import("myzod/libs/types").NumberType;
+        }>>;
     }>;
 }>;
 export declare type AuthTokenResponse = Infer<typeof AuthTokenResponseSchema>;

@@ -3,6 +3,10 @@ import CSCAuth from "../../auth";
  * Get the owner info by @param auth.
  */
 export default function GetUserInfo(auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
+    student?: {
+        number: number;
+        class: number;
+    } | undefined;
     id: number;
     google_user_id: string;
     domain: string;
