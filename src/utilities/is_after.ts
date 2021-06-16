@@ -1,9 +1,10 @@
 import dayjs from "dayjs";
 
 export type TimePlus = string;
+export const timePlusPattern = /^\d\d:\d\d:\d\d$/;
 
 export function isTimePlus(time: string): time is TimePlus {
-    return !!(/^\d\d:\d\d:\d\d$/.exec(time));
+    return !!(timePlusPattern.exec(time));
 }
 
 export function getAddedTime(startTimestamp: Date, timePlus: string): dayjs.Dayjs {
