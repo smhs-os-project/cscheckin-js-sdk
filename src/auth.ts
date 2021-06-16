@@ -1,6 +1,7 @@
 import myzod from "myzod";
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
+import RevokeAccessToken from "./logic/auth/revoke_access_token";
 import SetIdentity from "./logic/auth/set_ident";
 import { Organization } from "./types/auth/req_auth_token";
 import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_auth_token";
@@ -52,6 +53,10 @@ export default class CSCAuth {
 
     async setIdentity(userClass: number, userNo: number): Promise<boolean> {
         return SetIdentity({ class: userClass, number: userNo }, this);
+    }
+
+    async revoke(): Promise<boolean> {
+        return RevokeAccessToken(this);
     }
 
     static import(data: string): CSCAuth | null {
