@@ -7,11 +7,11 @@ export default function GetCoursesList(auth: CSCAuth): Promise<import("../../typ
     name: string;
     created_at: string;
     updated_at: string;
-    google_classroom_id: string;
-    teacher_id: number;
     start_timestamp: Date;
     late_time: string;
     expire_time: string;
+    google_classroom_id: string;
+    teacher_id: number;
     uuid: string;
 }[]>>;
 //# sourceMappingURL=get_courses_list.d.ts.map
