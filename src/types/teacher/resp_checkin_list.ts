@@ -6,7 +6,6 @@ export const TeacherCheckinResponseSchema = myzod.object({
     state: myzod.enum(CheckinState),
     created_at: myzod.date(),
     name: myzod.string(),
-    email: myzod.string(),
     class: myzod.number(),
     number: myzod.number(),
 });
