@@ -9,7 +9,7 @@ import { AuthIdentRequest } from "../../types/auth/req_auth_ident";
  * @returns Is it success?
  */
 export default async function SetIdentity(request: AuthIdentRequest, auth: CSCAuth): Promise<boolean> {
-    const response = await PostJsonAuth(BuildUri("/auth/user"), request, auth);
+    const response = await PostJsonAuth(BuildUri("/auth/student"), request, auth);
 
     return response?.ok ?? false;
 }
