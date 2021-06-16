@@ -11,7 +11,6 @@ exports.TeacherCheckinResponseSchema = myzod_1.default.object({
     state: myzod_1.default.enum(checkin_state_1.CheckinState),
     created_at: myzod_1.default.date(),
     name: myzod_1.default.string(),
-    email: myzod_1.default.string(),
     class: myzod_1.default.number(),
     number: myzod_1.default.number(),
 });

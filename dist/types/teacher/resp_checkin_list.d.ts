@@ -5,7 +5,6 @@ export declare const TeacherCheckinResponseSchema: import("myzod/libs/types").Ob
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
     created_at: import("myzod/libs/types").DateType;
     name: import("myzod/libs/types").StringType;
-    email: import("myzod/libs/types").StringType;
     class: import("myzod/libs/types").NumberType;
     number: import("myzod/libs/types").NumberType;
 }>;
@@ -14,7 +13,6 @@ export declare const TeacherCheckinListResponseSchema: import("myzod/libs/types"
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
     created_at: import("myzod/libs/types").DateType;
     name: import("myzod/libs/types").StringType;
-    email: import("myzod/libs/types").StringType;
     class: import("myzod/libs/types").NumberType;
     number: import("myzod/libs/types").NumberType;
 }>>;
