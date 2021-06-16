@@ -40,7 +40,7 @@ class CSCAuth {
                 this.accessData = resp;
             }
         }
-        return null;
+        return this.accessData;
     }
     async getAuthenticationHeader() {
         const accessData = await this.getAccessData();
