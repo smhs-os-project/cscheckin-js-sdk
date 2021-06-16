@@ -2,7 +2,8 @@ import myzod, { Infer } from "myzod";
 
 export enum Organization {
     SMHS = "smhs",
-    FSSH = "fssh"
+    FSSH = "fssh",
+    COMMON = "common"
 }
 
 export const AuthTokenRequestSchema = myzod.object({
