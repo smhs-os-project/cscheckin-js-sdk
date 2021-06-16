@@ -9,6 +9,7 @@ var Organization;
 (function (Organization) {
     Organization["SMHS"] = "smhs";
     Organization["FSSH"] = "fssh";
+    Organization["COMMON"] = "common";
 })(Organization = exports.Organization || (exports.Organization = {}));
 exports.AuthTokenRequestSchema = myzod_1.default.object({
     id_token: myzod_1.default.string(),

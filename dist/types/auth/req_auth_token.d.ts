@@ -1,7 +1,8 @@
 import { Infer } from "myzod";
 export declare enum Organization {
     SMHS = "smhs",
-    FSSH = "fssh"
+    FSSH = "fssh",
+    COMMON = "common"
 }
 export declare const AuthTokenRequestSchema: import("myzod/libs/types").ObjectType<{
     id_token: import("myzod/libs/types").StringType;
