@@ -17,7 +17,7 @@ const resp_course_1 = require("../../types/course/resp_course");
  * });
  * ```
  */
-function CreateCourse(classroomId, request, auth) {
+async function CreateCourse(classroomId, request, auth) {
     return post_auth_method_1.default(`/course/${classroomId}`, request, auth, resp_course_1.CourseResponseSchema);
 }
 exports.default = CreateCourse;
