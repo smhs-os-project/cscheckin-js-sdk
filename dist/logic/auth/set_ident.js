@@ -12,7 +12,7 @@ const post_auth_1 = __importDefault(require("../../request/json/post_auth"));
  */
 async function SetIdentity(request, auth) {
     var _a;
-    const response = await post_auth_1.default(build_uri_1.default("/auth/user"), request, auth);
+    const response = await post_auth_1.default(build_uri_1.default("/auth/student"), request, auth);
     return (_a = response === null || response === void 0 ? void 0 : response.ok) !== null && _a !== void 0 ? _a : false;
 }
 exports.default = SetIdentity;
