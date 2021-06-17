@@ -1,5 +1,5 @@
 export enum CheckinState {
-    NOT_CHECK_IN = "NOT_CHECK_IN",
+    NOT_CHECKED_IN = "NOT_CHECKED_IN",
     ON_TIME = "ON_TIME",
     LATE = "LATE",
 }
