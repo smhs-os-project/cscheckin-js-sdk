@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourse = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
+exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
 const is_api_working_1 = __importDefault(require("./logic/common/is_api_working"));
 exports.IsApiWorking = is_api_working_1.default;
 const close_course_1 = __importDefault(require("./logic/course/close_course"));
@@ -12,8 +12,9 @@ const create_course_1 = __importDefault(require("./logic/course/create_course"))
 exports.CreateCourse = create_course_1.default;
 const get_classrooms_list_1 = __importDefault(require("./logic/course/get_classrooms_list"));
 exports.GetClassroomsList = get_classrooms_list_1.default;
-const get_course_1 = __importDefault(require("./logic/course/get_course"));
-exports.GetCourse = get_course_1.default;
+const get_course_1 = require("./logic/course/get_course");
+Object.defineProperty(exports, "GetCourseByUUID", { enumerable: true, get: function () { return get_course_1.GetCourseByUUID; } });
+Object.defineProperty(exports, "GetCourseByID", { enumerable: true, get: function () { return get_course_1.GetCourseByID; } });
 const get_courses_list_1 = __importDefault(require("./logic/course/get_courses_list"));
 exports.GetCoursesList = get_courses_list_1.default;
 const get_share_link_1 = __importDefault(require("./logic/course/get_share_link"));
