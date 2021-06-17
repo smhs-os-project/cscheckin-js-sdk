@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAfter = exports.getAddedTime = exports.isTimePlus = exports.timePlusPattern = void 0;
+exports.isBefore = exports.isAfter = exports.getAddedTime = exports.isTimePlus = exports.timePlusPattern = void 0;
 const dayjs_1 = __importDefault(require("dayjs"));
 exports.timePlusPattern = /^\d\d:\d\d:\d\d$/;
 function isTimePlus(time) {
@@ -25,4 +25,8 @@ function isAfter(startTimestamp, timePlus) {
     return getAddedTime(startTimestamp, timePlus).isAfter(Date.now());
 }
 exports.isAfter = isAfter;
+function isBefore(startTimestamp, timePlus) {
+    return getAddedTime(startTimestamp, timePlus).isBefore(Date.now());
+}
+exports.isBefore = isBefore;
 //# sourceMappingURL=is_after.js.map

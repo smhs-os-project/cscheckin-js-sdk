@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
+exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
 const is_api_working_1 = __importDefault(require("./logic/common/is_api_working"));
 exports.IsApiWorking = is_api_working_1.default;
 const close_course_1 = __importDefault(require("./logic/course/close_course"));
@@ -33,4 +33,5 @@ const checkin_list_1 = __importDefault(require("./logic/teacher/checkin_list"));
 exports.CheckinList = checkin_list_1.default;
 const is_after_1 = require("./utilities/is_after");
 Object.defineProperty(exports, "isAfter", { enumerable: true, get: function () { return is_after_1.isAfter; } });
+Object.defineProperty(exports, "isBefore", { enumerable: true, get: function () { return is_after_1.isBefore; } });
 //# sourceMappingURL=index.js.map
