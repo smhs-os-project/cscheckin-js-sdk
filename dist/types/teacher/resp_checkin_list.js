@@ -7,12 +7,12 @@ exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema 
 const myzod_1 = __importDefault(require("myzod"));
 const checkin_state_1 = require("../common/checkin_state");
 exports.TeacherCheckinResponseSchema = myzod_1.default.object({
-    checkin_id: myzod_1.default.number(),
+    checkin_id: myzod_1.default.string(),
     state: myzod_1.default.enum(checkin_state_1.CheckinState),
-    created_at: myzod_1.default.date(),
+    created_at: myzod_1.default.date().or(myzod_1.default.string()),
     name: myzod_1.default.string(),
-    class: myzod_1.default.number(),
-    number: myzod_1.default.number(),
+    class: myzod_1.default.string(),
+    number: myzod_1.default.string(),
 });
 exports.TeacherCheckinListResponseSchema = myzod_1.default.array(exports.TeacherCheckinResponseSchema);
 //# sourceMappingURL=resp_checkin_list.js.map

@@ -1,10 +1,10 @@
 import CSCAuth from "../../auth";
 export default function CheckinList(courseId: string, auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
-    number: number;
-    class: number;
+    number: string;
+    class: string;
     name: string;
-    created_at: Date;
-    checkin_id: number;
+    created_at: string | Date;
+    checkin_id: string;
     state: import("../../types/common/checkin_state").CheckinState;
 }[]>>;
 //# sourceMappingURL=checkin_list.d.ts.map
