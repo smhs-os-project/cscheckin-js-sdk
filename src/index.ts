@@ -2,7 +2,7 @@ import IsApiWorking from "./logic/common/is_api_working";
 import CloseCourse from "./logic/course/close_course";
 import CreateCourse from "./logic/course/create_course";
 import GetClassroomsList from "./logic/course/get_classrooms_list";
-import GetCourse from "./logic/course/get_course";
+import { GetCourseByUUID, GetCourseByID } from "./logic/course/get_course";
 import GetCoursesList from "./logic/course/get_courses_list";
 import GetShareLink from "./logic/course/get_share_link";
 import ShareToClassroom from "./logic/course/share_to_classroom";
@@ -17,7 +17,8 @@ export {
     CloseCourse,
     CreateCourse,
     GetClassroomsList,
-    GetCourse,
+    GetCourseByUUID,
+    GetCourseByID,
     GetCoursesList,
     GetOrganization,
     GetOrganizationList,
