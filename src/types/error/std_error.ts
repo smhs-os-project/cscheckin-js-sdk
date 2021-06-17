@@ -1,7 +1,14 @@
 import myzod, {Infer, ValidationError} from "myzod";
 
 export const StandardErrorResponseSchema = myzod.object({
-    message: myzod.string(),
+    /**
+     * User Error
+     */
+    error: myzod.string().optional(),
+    /**
+     * Server Error
+     */
+    message: myzod.string().optional(),
 });
 
 export type StandardErrorResponse = Infer<typeof StandardErrorResponseSchema>;
