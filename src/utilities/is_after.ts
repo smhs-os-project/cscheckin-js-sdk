@@ -22,3 +22,7 @@ export function getAddedTime(startTimestamp: Date, timePlus: string): dayjs.Dayj
 export function isAfter(startTimestamp: Date, timePlus: string): boolean {
     return getAddedTime(startTimestamp, timePlus).isAfter(Date.now());
 }
+
+export function isBefore(startTimestamp: Date, timePlus: string): boolean {
+    return getAddedTime(startTimestamp, timePlus).isBefore(Date.now());
+}
