@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CheckinList = exports.Checkin = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourse = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
+exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetOrganizationList = exports.GetOrganization = exports.GetCoursesList = exports.GetCourse = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
 const is_api_working_1 = __importDefault(require("./logic/common/is_api_working"));
 exports.IsApiWorking = is_api_working_1.default;
 const close_course_1 = __importDefault(require("./logic/course/close_course"));
@@ -20,6 +20,8 @@ const get_share_link_1 = __importDefault(require("./logic/course/get_share_link"
 exports.GetShareLink = get_share_link_1.default;
 const share_to_classroom_1 = __importDefault(require("./logic/course/share_to_classroom"));
 exports.ShareToClassroom = share_to_classroom_1.default;
+const sync_course_members_1 = __importDefault(require("./logic/course/sync_course_members"));
+exports.SyncCourseMembers = sync_course_members_1.default;
 const get_org_1 = __importDefault(require("./logic/org/get_org"));
 exports.GetOrganization = get_org_1.default;
 const get_org_list_1 = __importDefault(require("./logic/org/get_org_list"));

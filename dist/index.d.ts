@@ -6,9 +6,10 @@ import GetCourse from "./logic/course/get_course";
 import GetCoursesList from "./logic/course/get_courses_list";
 import GetShareLink from "./logic/course/get_share_link";
 import ShareToClassroom from "./logic/course/share_to_classroom";
+import SyncCourseMembers from "./logic/course/sync_course_members";
 import GetOrganization from "./logic/org/get_org";
 import GetOrganizationList from "./logic/org/get_org_list";
 import Checkin from "./logic/student/checkin";
 import CheckinList from "./logic/teacher/checkin_list";
-export { IsApiWorking, CloseCourse, CreateCourse, GetClassroomsList, GetCourse, GetCoursesList, GetOrganization, GetOrganizationList, GetShareLink, ShareToClassroom, Checkin, CheckinList, };
+export { IsApiWorking, CloseCourse, CreateCourse, GetClassroomsList, GetCourse, GetCoursesList, GetOrganization, GetOrganizationList, GetShareLink, ShareToClassroom, SyncCourseMembers, Checkin, CheckinList, };
 //# sourceMappingURL=index.d.ts.map
