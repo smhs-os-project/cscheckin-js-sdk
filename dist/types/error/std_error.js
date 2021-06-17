@@ -22,7 +22,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StdErrOrNull = exports.StandardErrorResponseSchema = void 0;
 const myzod_1 = __importStar(require("myzod"));
 exports.StandardErrorResponseSchema = myzod_1.default.object({
-    message: myzod_1.default.string(),
+    /**
+     * User Error
+     */
+    error: myzod_1.default.string().optional(),
+    /**
+     * Server Error
+     */
+    message: myzod_1.default.string().optional(),
 });
 const StdErrOrNull = (src) => {
     const checked = exports.StandardErrorResponseSchema.try(src);
