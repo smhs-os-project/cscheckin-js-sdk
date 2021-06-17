@@ -1,7 +1,10 @@
 import type CSCAuth from "../../auth";
-import PostAuthMethod from "../../request/encapsulation/post_auth_method";
-import { StudentCheckinResponseSchema } from "../../types/student/resp_checkin";
+import BuildUri from "../../request/build_uri";
+import PostJsonAuth from "../../request/json/post_auth";
 
-export default async function Checkin(courseUUID: string, auth: CSCAuth) {
-    return PostAuthMethod(`/checkin/${courseUUID}`, {}, auth, StudentCheckinResponseSchema);
+export default async function Checkin(courseUUID: string, auth: CSCAuth): Promise<boolean> {
+    const response = await PostJsonAuth(BuildUri(`/checkin/${courseUUID}`), {}, auth);
+
+    // TODO: return the explicit error message
+    return response?.ok ?? false;
 }
