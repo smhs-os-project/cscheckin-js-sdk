@@ -1,7 +1,7 @@
 import { Infer } from "myzod";
 import { CheckinState } from "../common/checkin_state";
 export declare const TeacherCheckinResponseSchema: import("myzod/libs/types").ObjectType<{
-    checkin_id: import("myzod/libs/types").StringType;
+    checkin_id: import("myzod/libs/types").NumberType;
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
     created_at: import("myzod/libs/types").UnionType<[import("myzod/libs/types").DateType, import("myzod/libs/types").StringType]>;
     name: import("myzod/libs/types").StringType;
@@ -9,7 +9,7 @@ export declare const TeacherCheckinResponseSchema: import("myzod/libs/types").Ob
     number: import("myzod/libs/types").StringType;
 }>;
 export declare const TeacherCheckinListResponseSchema: import("myzod/libs/types").ArrayType<import("myzod/libs/types").ObjectType<{
-    checkin_id: import("myzod/libs/types").StringType;
+    checkin_id: import("myzod/libs/types").NumberType;
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
     created_at: import("myzod/libs/types").UnionType<[import("myzod/libs/types").DateType, import("myzod/libs/types").StringType]>;
     name: import("myzod/libs/types").StringType;
