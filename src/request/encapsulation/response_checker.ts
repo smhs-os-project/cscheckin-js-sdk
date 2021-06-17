@@ -11,6 +11,8 @@ export default async function ResponseChecker<T extends AnyType>
             const successResp = schema.try(responseJson);
             if (!(successResp instanceof ValidationError)) return successResp;
     
+            console.error("received a malformed response.");
+            console.error(responseJson);
             return StdErrOrNull(responseJson);
         }
 
