@@ -11,6 +11,7 @@ import GetOrganization from "./logic/org/get_org";
 import GetOrganizationList from "./logic/org/get_org_list";
 import Checkin from "./logic/student/checkin";
 import CheckinList from "./logic/teacher/checkin_list";
+import { isAfter } from "./utilities/is_after";
 
 export {
     IsApiWorking,
@@ -27,4 +28,5 @@ export {
     SyncCourseMembers,
     Checkin,
     CheckinList,
+    isAfter,
 };
