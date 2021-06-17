@@ -11,5 +11,6 @@ import GetOrganization from "./logic/org/get_org";
 import GetOrganizationList from "./logic/org/get_org_list";
 import Checkin from "./logic/student/checkin";
 import CheckinList from "./logic/teacher/checkin_list";
-export { IsApiWorking, CloseCourse, CreateCourse, GetClassroomsList, GetCourseByUUID, GetCourseByID, GetCoursesList, GetOrganization, GetOrganizationList, GetShareLink, ShareToClassroom, SyncCourseMembers, Checkin, CheckinList, };
+import { isAfter } from "./utilities/is_after";
+export { IsApiWorking, CloseCourse, CreateCourse, GetClassroomsList, GetCourseByUUID, GetCourseByID, GetCoursesList, GetOrganization, GetOrganizationList, GetShareLink, ShareToClassroom, SyncCourseMembers, Checkin, CheckinList, isAfter, };
 //# sourceMappingURL=index.d.ts.map
