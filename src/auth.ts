@@ -63,7 +63,7 @@ export default class CSCAuth {
         return null;
     }
 
-    async setIdentity(userClass: number, userNo: number): Promise<boolean> {
+    async setIdentity(userClass: string, userNo: string): Promise<boolean> {
         return SetIdentity({ class: userClass, number: userNo }, this);
     }
 
