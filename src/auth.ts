@@ -1,11 +1,12 @@
 import myzod from "myzod";
 import { ValidationError } from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
+import GetUserInfo from "./logic/auth/get_user_info";
 import RevokeAccessToken from "./logic/auth/revoke_access_token";
 import SetIdentity from "./logic/auth/set_ident";
 import { Organization } from "./types/auth/req_auth_token";
 import { AuthTokenResponse, AuthTokenResponseSchema } from "./types/auth/resp_auth_token";
-import { AuthUserResponse } from "./types/auth/resp_auth_user";
+import { AuthUserResponse, AuthUserResponseSchema } from "./types/auth/resp_auth_user";
 
 export const CSCAuthExportStructure = myzod.object({
     organization: myzod.enum(Organization),
@@ -47,7 +48,18 @@ export default class CSCAuth {
 
     async userInfo(): Promise<AuthUserResponse | null> {
         const accessData = await this.getAccessData();
-        if (accessData) return accessData.user;
+        if (accessData) {
+            const rawInfo = await GetUserInfo(this);
+            const info = AuthUserResponseSchema.try(rawInfo);
+
+            if (info instanceof ValidationError) {
+                console.error("failed to get the user info");
+                console.error(rawInfo);
+                return null;
+            }
+
+            return info;
+        }
         return null;
     }
 
