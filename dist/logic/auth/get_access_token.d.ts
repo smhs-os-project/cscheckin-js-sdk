@@ -10,8 +10,8 @@ export default function GetAccessToken(organization: Organization, request: Auth
     exp: number;
     user: {
         student?: {
-            number: number;
-            class: number;
+            number: string;
+            class: string;
         } | undefined;
         id: number;
         google_user_id: string;

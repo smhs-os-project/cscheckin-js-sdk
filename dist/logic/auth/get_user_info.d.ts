@@ -4,8 +4,8 @@ import CSCAuth from "../../auth";
  */
 export default function GetUserInfo(auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
     student?: {
-        number: number;
-        class: number;
+        number: string;
+        class: string;
     } | undefined;
     id: number;
     google_user_id: string;

@@ -9,8 +9,8 @@ export declare const AuthUserResponseSchema: import("myzod/libs/types").ObjectTy
     created_at: import("myzod/libs/types").StringType;
     updated_at: import("myzod/libs/types").StringType;
     student: import("myzod/libs/types").OptionalType<import("myzod/libs/types").ObjectType<{
-        class: import("myzod/libs/types").NumberType;
-        number: import("myzod/libs/types").NumberType;
+        class: import("myzod/libs/types").StringType;
+        number: import("myzod/libs/types").StringType;
     }>>;
 }>;
 export declare type AuthUserResponse = Infer<typeof AuthUserResponseSchema>;
