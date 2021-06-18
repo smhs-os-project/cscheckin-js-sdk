@@ -7,10 +7,12 @@ exports.CSCAuthExportStructure = void 0;
 const myzod_1 = __importDefault(require("myzod"));
 const myzod_2 = require("myzod");
 const get_access_token_1 = __importDefault(require("./logic/auth/get_access_token"));
+const get_user_info_1 = __importDefault(require("./logic/auth/get_user_info"));
 const revoke_access_token_1 = __importDefault(require("./logic/auth/revoke_access_token"));
 const set_ident_1 = __importDefault(require("./logic/auth/set_ident"));
 const req_auth_token_1 = require("./types/auth/req_auth_token");
 const resp_auth_token_1 = require("./types/auth/resp_auth_token");
+const resp_auth_user_1 = require("./types/auth/resp_auth_user");
 exports.CSCAuthExportStructure = myzod_1.default.object({
     organization: myzod_1.default.enum(req_auth_token_1.Organization),
     gIdToken: myzod_1.default.string(),
@@ -50,8 +52,16 @@ class CSCAuth {
     }
     async userInfo() {
         const accessData = await this.getAccessData();
-        if (accessData)
-            return accessData.user;
+        if (accessData) {
+            const rawInfo = await get_user_info_1.default(this);
+            const info = resp_auth_user_1.AuthUserResponseSchema.try(rawInfo);
+            if (info instanceof myzod_2.ValidationError) {
+                console.error("failed to get the user info");
+                console.error(rawInfo);
+                return null;
+            }
+            return info;
+        }
         return null;
     }
     async setIdentity(userClass, userNo) {
