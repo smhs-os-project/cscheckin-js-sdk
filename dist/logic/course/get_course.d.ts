@@ -1,4 +1,4 @@
-import CSCAuth from "../../auth";
+import type CSCAuth from "../../auth";
 /**
  * Get the info of the specified UUID of course.
  */

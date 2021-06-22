@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const IsApiWorkingResponseSchema: import("myzod/libs/types").ObjectType<{
     success: import("myzod/libs/types").BooleanType;
 }>;

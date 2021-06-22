@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const GClassroomResponseSchema: import("myzod/libs/types").ObjectType<{
     google_classroom_id: import("myzod/libs/types").StringType;
     name: import("myzod/libs/types").StringType;

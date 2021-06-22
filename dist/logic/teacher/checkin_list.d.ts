@@ -1,4 +1,4 @@
-import CSCAuth from "../../auth";
+import type CSCAuth from "../../auth";
 export default function CheckinList(courseId: string, auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
     number: string;
     class: string;

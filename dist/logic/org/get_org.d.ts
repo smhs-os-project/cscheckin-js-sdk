@@ -1,5 +1,5 @@
-import { WouldFail } from "../../types/error/std_error";
-import { OrgInfoResponse } from "../../types/org_info/resp_org_info";
+import type { WouldFail } from "../../types/error/std_error";
+import type { OrgInfoResponse } from "../../types/org_info/resp_org_info";
 /**
  * Get the specified organization as well as
  * its Chinese name and client ID.

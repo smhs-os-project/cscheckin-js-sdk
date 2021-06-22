@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const StandardErrorResponseSchema: import("myzod/libs/types").ObjectType<{
     /**
      * User Error

@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const CreateCourseRequestSchema: import("myzod/libs/types").ObjectType<{
     start_timestamp: import("myzod/libs/types").DateType;
     /**

@@ -1,4 +1,4 @@
-import CSCAuth from "../../auth";
+import type CSCAuth from "../../auth";
 /**
  * Get the owner info by @param auth.
  */

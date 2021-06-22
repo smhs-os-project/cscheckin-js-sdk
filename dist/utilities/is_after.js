@@ -7,14 +7,17 @@ exports.isBefore = exports.isAfter = exports.getAddedTime = exports.isTimePlus =
 const dayjs_1 = __importDefault(require("dayjs"));
 exports.timePlusPattern = /^\d\d:\d\d:\d\d$/;
 function isTimePlus(time) {
-    return !!(exports.timePlusPattern.exec(time));
+    return !!exports.timePlusPattern.exec(time);
 }
 exports.isTimePlus = isTimePlus;
 function getAddedTime(startTimestamp, timePlus) {
     if (isTimePlus(timePlus)) {
         const [hh, mm, ss] = timePlus.split(":").map(Number);
         if (hh !== undefined && mm !== undefined && ss !== undefined) {
-            const lateTime = dayjs_1.default(startTimestamp).add(hh, "hour").add(mm, "minute").add(ss, "second");
+            const lateTime = dayjs_1.default(startTimestamp)
+                .add(hh, "hour")
+                .add(mm, "minute")
+                .add(ss, "second");
             return lateTime;
         }
     }

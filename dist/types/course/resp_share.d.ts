@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const ShareResponseSchema: import("myzod/libs/types").ObjectType<{
     link: import("myzod/libs/types").StringType;
 }>;

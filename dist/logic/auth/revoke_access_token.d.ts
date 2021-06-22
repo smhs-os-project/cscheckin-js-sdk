@@ -1,4 +1,4 @@
-import CSCAuth from "../../auth";
+import type CSCAuth from "../../auth";
 /**
  * Revoke the access token
  *

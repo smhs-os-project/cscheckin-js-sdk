@@ -1,11 +1,30 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CSCAuthExportStructure = void 0;
-const myzod_1 = __importDefault(require("myzod"));
-const myzod_2 = require("myzod");
+const myzod_1 = __importStar(require("myzod"));
+const Sentry = __importStar(require("@sentry/browser"));
 const get_access_token_1 = __importDefault(require("./logic/auth/get_access_token"));
 const get_user_info_1 = __importDefault(require("./logic/auth/get_user_info"));
 const revoke_access_token_1 = __importDefault(require("./logic/auth/revoke_access_token"));
@@ -31,12 +50,12 @@ class CSCAuth {
         if (!this.accessData) {
             const accessData = await get_access_token_1.default(this.organization, {
                 id_token: this.gIdToken,
-                access_token: this.gAccessToken
+                access_token: this.gAccessToken,
             });
             const resp = resp_auth_token_1.AuthTokenResponseSchema.try(accessData);
-            if (resp instanceof myzod_2.ValidationError) {
-                console.error("error: accessData is not a valid data.");
-                console.log(accessData);
+            if (resp instanceof myzod_1.ValidationError) {
+                Sentry.captureMessage(`error: accessData is not a valid data: ${JSON.stringify(accessData)}`);
+                Sentry.captureException(resp);
             }
             else {
                 this.accessData = resp;
@@ -55,9 +74,9 @@ class CSCAuth {
         if (accessData) {
             const rawInfo = await get_user_info_1.default(this);
             const info = resp_auth_user_1.AuthUserResponseSchema.try(rawInfo);
-            if (info instanceof myzod_2.ValidationError) {
-                console.error("failed to get the user info");
-                console.error(rawInfo);
+            if (info instanceof myzod_1.ValidationError) {
+                Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
+                Sentry.captureException(info);
                 return null;
             }
             return info;
@@ -72,7 +91,7 @@ class CSCAuth {
     }
     static import(data) {
         const deserialized = exports.CSCAuthExportStructure.try(JSON.parse(data));
-        if (deserialized instanceof myzod_2.ValidationError)
+        if (deserialized instanceof myzod_1.ValidationError)
             return null;
         const { organization, gAccessToken, gIdToken, accessData } = deserialized;
         const auth = new CSCAuth(organization, gAccessToken, gIdToken);

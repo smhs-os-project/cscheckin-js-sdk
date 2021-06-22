@@ -1,5 +1,5 @@
-import CSCAuth from "../../auth";
-import { CreateCourseRequest } from "../../types/course/req_course";
+import type CSCAuth from "../../auth";
+import type { CreateCourseRequest } from "../../types/course/req_course";
 /**
  * Create a course.
  *

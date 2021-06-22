@@ -9,7 +9,7 @@ async function PostJsonAuth(url, data, auth) {
     if (authentication)
         return post_base_1.default(url, data, {
             headers: {
-                "Authorization": authentication,
+                Authorization: authentication,
             },
         });
     return null;

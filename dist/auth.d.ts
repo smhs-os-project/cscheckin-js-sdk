@@ -1,6 +1,6 @@
 import { Organization } from "./types/auth/req_auth_token";
-import { AuthTokenResponse } from "./types/auth/resp_auth_token";
-import { AuthUserResponse } from "./types/auth/resp_auth_user";
+import type { AuthTokenResponse } from "./types/auth/resp_auth_token";
+import type { AuthUserResponse } from "./types/auth/resp_auth_user";
 export declare const CSCAuthExportStructure: import("myzod/libs/types").ObjectType<{
     organization: import("myzod/libs/types").EnumType<typeof Organization>;
     gIdToken: import("myzod/libs/types").StringType;

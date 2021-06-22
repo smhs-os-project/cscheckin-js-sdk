@@ -10,8 +10,7 @@ exports.OrgInfoResponseSchema = myzod_1.default.object({
     client_id: myzod_1.default.string(),
     chinese_name: myzod_1.default.string(),
 });
-exports.OrgInfoListResponseSchema = myzod_1.default.array(exports.OrgInfoResponseSchema
-    .and(myzod_1.default.object({
+exports.OrgInfoListResponseSchema = myzod_1.default.array(exports.OrgInfoResponseSchema.and(myzod_1.default.object({
     id: myzod_1.default.enum(req_auth_token_1.Organization),
 })));
 //# sourceMappingURL=resp_org_info.js.map

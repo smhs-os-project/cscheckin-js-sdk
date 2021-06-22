@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare enum Organization {
     SMHS = "smhs",
     FSSH = "fssh",

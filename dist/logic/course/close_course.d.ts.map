@@ -1,1 +1,1 @@
-{"version":3,"file":"close_course.d.ts","sourceRoot":"","sources":["../../../src/logic/course/close_course.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,YAAY,CAAC;AAIjC;;GAEG;AACH,wBAA8B,WAAW,CAAC,QAAQ,EAAE,MAAM,EAAE,IAAI,EAAE,OAAO,oBAIxE"}
+{"version":3,"file":"close_course.d.ts","sourceRoot":"","sources":["../../../src/logic/course/close_course.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;GAEG;AACH,wBAA8B,WAAW,CAAC,QAAQ,EAAE,MAAM,EAAE,IAAI,EAAE,OAAO,oBAIxE"}

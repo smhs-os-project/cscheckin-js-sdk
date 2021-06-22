@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 import { Organization } from "../auth/req_auth_token";
 export declare const OrgInfoResponseSchema: import("myzod/libs/types").ObjectType<{
     client_id: import("myzod/libs/types").StringType;

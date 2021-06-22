@@ -9,7 +9,7 @@ async function GetJsonAuth(url, auth) {
     if (authentication)
         return get_base_1.default(url, {
             headers: {
-                "Authorization": authentication,
+                Authorization: authentication,
             },
         });
     return null;

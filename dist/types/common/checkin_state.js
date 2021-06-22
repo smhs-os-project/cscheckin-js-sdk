@@ -7,4 +7,7 @@ var CheckinState;
     CheckinState["ON_TIME"] = "ON_TIME";
     CheckinState["LATE"] = "LATE";
 })(CheckinState = exports.CheckinState || (exports.CheckinState = {}));
+exports.default = {
+    CheckinState,
+};
 //# sourceMappingURL=checkin_state.js.map

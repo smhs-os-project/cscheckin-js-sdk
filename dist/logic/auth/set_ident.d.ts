@@ -1,5 +1,5 @@
-import CSCAuth from "../../auth";
-import { AuthIdentRequest } from "../../types/auth/req_auth_ident";
+import type CSCAuth from "../../auth";
+import type { AuthIdentRequest } from "../../types/auth/req_auth_ident";
 /**
  * Set the identity of @param auth.
  *

@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const AuthTokenResponseSchema: import("myzod/libs/types").ObjectType<{
     access_token: import("myzod/libs/types").StringType;
     token_type: import("myzod/libs/types").StringType;

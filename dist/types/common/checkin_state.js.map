@@ -1,1 +1,1 @@
-{"version":3,"file":"checkin_state.js","sourceRoot":"","sources":["../../../src/types/common/checkin_state.ts"],"names":[],"mappings":";;;AAAA,IAAY,YAIX;AAJD,WAAY,YAAY;IACpB,iDAAiC,CAAA;IACjC,mCAAmB,CAAA;IACnB,6BAAa,CAAA;AACjB,CAAC,EAJW,YAAY,GAAZ,oBAAY,KAAZ,oBAAY,QAIvB"}
+{"version":3,"file":"checkin_state.js","sourceRoot":"","sources":["../../../src/types/common/checkin_state.ts"],"names":[],"mappings":";;;AAAA,IAAY,YAIX;AAJD,WAAY,YAAY;IACtB,iDAAiC,CAAA;IACjC,mCAAmB,CAAA;IACnB,6BAAa,CAAA;AACf,CAAC,EAJW,YAAY,GAAZ,oBAAY,KAAZ,oBAAY,QAIvB;AAED,kBAAe;IACb,YAAY;CACb,CAAC"}

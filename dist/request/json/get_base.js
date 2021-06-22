@@ -7,7 +7,7 @@ function BaseGetJson(url, { headers, ...init }) {
         ...init,
         headers: {
             "User-Agent": consts_1.userAgent,
-            ...headers
+            ...headers,
         },
     });
 }

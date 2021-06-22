@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 import { CheckinState } from "../common/checkin_state";
 export declare const TeacherCheckinResponseSchema: import("myzod/libs/types").ObjectType<{
     checkin_id: import("myzod/libs/types").NumberType;

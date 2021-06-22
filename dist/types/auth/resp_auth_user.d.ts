@@ -1,4 +1,4 @@
-import { Infer } from "myzod";
+import type { Infer } from "myzod";
 export declare const AuthUserResponseSchema: import("myzod/libs/types").ObjectType<{
     id: import("myzod/libs/types").NumberType;
     google_user_id: import("myzod/libs/types").StringType;
