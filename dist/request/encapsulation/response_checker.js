@@ -22,7 +22,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const myzod_1 = require("myzod");
 const Sentry = __importStar(require("@sentry/browser"));
 const std_error_1 = require("../../types/error/std_error");
-require("../../initiate");
 async function ResponseChecker(response, schema) {
     const transactions = Sentry.startTransaction({
         name: "Checking the response type",

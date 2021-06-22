@@ -5,6 +5,9 @@ import type { AuthTokenRequest, Organization } from "../../types/auth/req_auth_t
  * @organization The organization issuing the id_token and access_token
  */
 export default function GetAccessToken(organization: Organization, request: AuthTokenRequest): Promise<import("../../types/error/std_error").WouldFail<{
+    access_token: string;
+    token_type: string;
+    exp: number;
     user: {
         student?: {
             number: string;
@@ -19,8 +22,5 @@ export default function GetAccessToken(organization: Organization, request: Auth
         created_at: string;
         updated_at: string;
     };
-    access_token: string;
-    token_type: string;
-    exp: number;
 }>>;
 //# sourceMappingURL=get_access_token.d.ts.map
