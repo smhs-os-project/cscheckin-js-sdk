@@ -22,5 +22,8 @@ module.exports = {
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
     "arrow-body-style": ["error", "as-needed"],
+    // the type of some rules is too-ooo-ooo-long!
+    // we believed that typescript handles well.
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
 };
