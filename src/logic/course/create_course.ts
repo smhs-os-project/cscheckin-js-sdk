@@ -1,11 +1,11 @@
-import CSCAuth from "../../auth";
+import type CSCAuth from "../../auth";
 import PostAuthMethod from "../../request/encapsulation/post_auth_method";
-import { CreateCourseRequest } from "../../types/course/req_course";
+import type { CreateCourseRequest } from "../../types/course/req_course";
 import { CourseResponseSchema } from "../../types/course/resp_course";
 
 /**
  * Create a course.
- * 
+ *
  * @example
  * ```ts
  * CreateCourse("12345", {
@@ -15,6 +15,15 @@ import { CourseResponseSchema } from "../../types/course/resp_course";
  * });
  * ```
  */
-export default async function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth) {
-    return PostAuthMethod(`/course/${classroomId}`, request, auth, CourseResponseSchema);
+export default async function CreateCourse(
+  classroomId: string,
+  request: CreateCourseRequest,
+  auth: CSCAuth
+) {
+  return PostAuthMethod(
+    `/course/${classroomId}`,
+    request,
+    auth,
+    CourseResponseSchema
+  );
 }

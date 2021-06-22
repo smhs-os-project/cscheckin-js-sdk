@@ -6,5 +6,5 @@ import { OrgInfoListResponseSchema } from "../../types/org_info/resp_org_info";
  * its Chinese name and client ID.
  */
 export default async function GetOrganizationList() {
-    return GetMethod("/info", OrgInfoListResponseSchema);
+  return GetMethod("/info", OrgInfoListResponseSchema);
 }
