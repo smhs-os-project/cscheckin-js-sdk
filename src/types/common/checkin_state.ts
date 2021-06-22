@@ -3,3 +3,7 @@ export enum CheckinState {
   ON_TIME = "ON_TIME",
   LATE = "LATE",
 }
+
+export default {
+  CheckinState,
+};

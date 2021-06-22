@@ -1,7 +1,7 @@
 import "../polyfill";
 import { userAgent } from "../consts";
 
-export default function BasePostJson<T extends object>(
+export default function BasePostJson<T extends Record<string, unknown>>(
   url: RequestInfo,
   data: T,
   { headers, body, ...init }: RequestInit

@@ -1,5 +1,6 @@
 import myzod, { ValidationError } from "myzod";
 
+import * as Sentry from "@sentry/browser";
 import GetAccessToken from "./logic/auth/get_access_token";
 import GetUserInfo from "./logic/auth/get_user_info";
 import RevokeAccessToken from "./logic/auth/revoke_access_token";
@@ -36,8 +37,10 @@ export default class CSCAuth {
       const resp = AuthTokenResponseSchema.try(accessData);
 
       if (resp instanceof ValidationError) {
-        console.error("error: accessData is not a valid data.");
-        console.log(accessData);
+        Sentry.captureMessage(
+          `error: accessData is not a valid data: ${JSON.stringify(accessData)}`
+        );
+        Sentry.captureException(resp);
       } else {
         this.accessData = resp;
       }
@@ -59,8 +62,8 @@ export default class CSCAuth {
       const info = AuthUserResponseSchema.try(rawInfo);
 
       if (info instanceof ValidationError) {
-        console.error("failed to get the user info");
-        console.error(rawInfo);
+        Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
+        Sentry.captureException(info);
         return null;
       }
 

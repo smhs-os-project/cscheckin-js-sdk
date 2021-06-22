@@ -1,7 +1,7 @@
 import type CSCAuth from "../../auth";
 import BasePostJson from "./post_base";
 
-export default async function PostJsonAuth<T extends object>(
+export default async function PostJsonAuth<T extends Record<string, unknown>>(
   url: RequestInfo,
   data: T,
   auth: CSCAuth

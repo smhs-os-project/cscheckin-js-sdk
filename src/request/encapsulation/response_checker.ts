@@ -17,9 +17,9 @@ export default async function ResponseChecker<T extends AnyType>(
   });
 
   function endTransaction<K>(action: () => K): K {
-    const response = action();
+    const returnValue = action();
     transactions.finish();
-    return response;
+    return returnValue;
   }
 
   if (response) {

@@ -5,7 +5,7 @@ import PostJsonAuth from "../json/post_auth";
 import ResponseChecker from "./response_checker";
 
 export default async function PostAuthMethod<
-  T extends object,
+  T extends Record<string, unknown>,
   TT extends AnyType
 >(method: string, data: T, auth: CSCAuth, schema: TT) {
   const res = await PostJsonAuth(BuildUri(method), data, auth);
