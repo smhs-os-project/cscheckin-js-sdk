@@ -20,5 +20,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    "@typescript-eslint/consistent-type-imports": "error",
+    "arrow-body-style": ["error", "as-needed"],
   },
 };
