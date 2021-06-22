@@ -2,7 +2,7 @@ import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 
 const SENTRY_DSN =
-  "https://8951f0b3e3b5442d815dd82410322e1f@o877730.ingest.sentry.io/5828704";
+  "https://aef2e0b49198404988c3bcfff43dc1d3@o877730.ingest.sentry.io/5828881";
 /**
  * Set tracesSampleRate to 1.0 to capture 100%
  * of transactions for performance monitoring.
