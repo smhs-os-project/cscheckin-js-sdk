@@ -4,7 +4,6 @@ import type { AnyType } from "myzod/libs/types";
 import * as Sentry from "@sentry/browser";
 import type { WouldFail } from "../../types/error/std_error";
 import { StdErrOrNull } from "../../types/error/std_error";
-import "../../initiate";
 
 export default async function ResponseChecker<T extends AnyType>(
   response: Response | null | undefined,
