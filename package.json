@@ -1,7 +1,7 @@
 {
   "name": "cscheckin-js-sdk",
   "description": "The JavaScript / Node.js SDK for cscheckin",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "author": "pan93412",
   "license": "MIT",
