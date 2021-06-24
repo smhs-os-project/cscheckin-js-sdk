@@ -11,6 +11,7 @@ import GetOrganization from "./logic/org/get_org";
 import GetOrganizationList from "./logic/org/get_org_list";
 import Checkin from "./logic/student/checkin";
 import CheckinList from "./logic/teacher/checkin_list";
+import ExtractCheckinState from "./utilities/extract_course_status";
 import { isAfter, isBefore } from "./utilities/is_after";
 
 export {
@@ -30,4 +31,5 @@ export {
   CheckinList,
   isAfter,
   isBefore,
+  ExtractCheckinState,
 };
