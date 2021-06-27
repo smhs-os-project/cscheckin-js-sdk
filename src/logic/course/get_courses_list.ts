@@ -1,10 +1,15 @@
 import type CSCAuth from "../../auth";
-import GetAuthMethod from "../../request/encapsulation/get_auth_method";
-import { CourseListResponseSchema } from "../../types/course/resp_course";
+import { CourseListResponseSchema } from "../../types";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Get the available courses.
  */
-export default function GetCoursesList(auth: CSCAuth) {
-  return GetAuthMethod(`/course`, auth, CourseListResponseSchema);
+export default async function GetCoursesList(auth: CSCAuth) {
+  const response = clientInstance.jsonFetcher(
+    "/course",
+    await Client.authRequest(auth)
+  );
+
+  return Client.responseParser(response, CourseListResponseSchema);
 }

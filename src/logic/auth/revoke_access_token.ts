@@ -1,16 +1,18 @@
 import type CSCAuth from "../../auth";
-import BuildUri from "../../request/build_uri";
-import DeleteJsonAuth from "../../request/json/delete_auth";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Revoke the access token
  *
- * @returns Is it success?
+ * @return Is it success?
  */
-export default async function RevokeAccessToken(
-  auth: CSCAuth
-): Promise<boolean> {
-  const response = await DeleteJsonAuth(BuildUri("/auth/token"), auth);
+export default async function RevokeAccessToken(auth: CSCAuth) {
+  const [, error, extra] = await clientInstance.textFetcher(
+    `/auth/token`,
+    await Client.authRequest(auth, {
+      method: "DELETE",
+    })
+  );
 
-  return response?.ok ?? false;
+  return Client.isResponseOk(extra?.statusCode ?? -1, error);
 }

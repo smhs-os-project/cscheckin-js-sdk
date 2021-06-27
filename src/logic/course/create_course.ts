@@ -1,7 +1,7 @@
 import type CSCAuth from "../../auth";
-import PostAuthMethod from "../../request/encapsulation/post_auth_method";
-import type { CreateCourseRequest } from "../../types/course/req_course";
-import { CourseResponseSchema } from "../../types/course/resp_course";
+import type { CreateCourseRequest } from "../../types";
+import Client, { clientInstance } from "../../request/client";
+import { CourseResponseSchema } from "../../types";
 
 /**
  * Create a course.
@@ -20,10 +20,10 @@ export default async function CreateCourse(
   request: CreateCourseRequest,
   auth: CSCAuth
 ) {
-  return PostAuthMethod(
+  const response = await clientInstance.jsonFetcher(
     `/course/${classroomId}`,
-    request,
-    auth,
-    CourseResponseSchema
+    Client.postJsonRequest(request, await Client.authRequest(auth))
   );
+
+  return Client.responseParser(response, CourseResponseSchema);
 }

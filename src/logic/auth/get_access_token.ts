@@ -1,22 +1,18 @@
-import PostMethod from "../../request/encapsulation/post_method";
-import type {
-  AuthTokenRequest,
-  Organization,
-} from "../../types/auth/req_auth_token";
-import { AuthTokenResponseSchema } from "../../types/auth/resp_auth_token";
+import type { AuthTokenRequest } from "../../types";
+import { AuthTokenResponseSchema } from "../../types";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Get the access token.
  *
- * @organization The organization issuing the id_token and access_token
+ * @param request The Google token ID & access token
  */
-export default async function GetAccessToken(
-  organization: Organization,
-  request: AuthTokenRequest
-) {
-  return PostMethod(
+export default async function GetAccessToken(request: AuthTokenRequest) {
+  const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
+  const [response] = await clientInstance.jsonFetcher(
     `/auth/token/${organization}`,
-    request,
-    AuthTokenResponseSchema
+    Client.postJsonRequest(request)
   );
+
+  return Client.responseParser(response, AuthTokenResponseSchema);
 }

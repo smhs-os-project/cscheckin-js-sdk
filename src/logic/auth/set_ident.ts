@@ -1,7 +1,6 @@
 import type CSCAuth from "../../auth";
-import BuildUri from "../../request/build_uri";
-import PostJsonAuth from "../../request/json/post_auth";
-import type { AuthIdentRequest } from "../../types/auth/req_auth_ident";
+import type { AuthIdentRequest } from "../../types";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Set the identity of @param auth.
@@ -11,8 +10,11 @@ import type { AuthIdentRequest } from "../../types/auth/req_auth_ident";
 export default async function SetIdentity(
   request: AuthIdentRequest,
   auth: CSCAuth
-): Promise<boolean> {
-  const response = await PostJsonAuth(BuildUri("/auth/student"), request, auth);
+) {
+  const [, error, extra] = await clientInstance.textFetcher(
+    "/auth/student",
+    Client.postJsonRequest(request, await Client.authRequest(auth))
+  );
 
-  return response?.ok ?? false;
+  return Client.isResponseOk(extra?.statusCode ?? -1, error);
 }

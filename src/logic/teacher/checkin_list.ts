@@ -1,11 +1,12 @@
 import type CSCAuth from "../../auth";
-import GetAuthMethod from "../../request/encapsulation/get_auth_method";
-import { TeacherCheckinListResponseSchema } from "../../types/teacher/resp_checkin_list";
+import { TeacherCheckinListResponseSchema } from "../../types";
+import Client, { clientInstance } from "../../request/client";
 
 export default async function CheckinList(courseId: string, auth: CSCAuth) {
-  return GetAuthMethod(
+  const [response] = await clientInstance.jsonFetcher(
     `/checkin/${courseId}`,
-    auth,
-    TeacherCheckinListResponseSchema
+    await Client.authRequest(auth)
   );
+
+  return Client.responseParser(response, TeacherCheckinListResponseSchema);
 }

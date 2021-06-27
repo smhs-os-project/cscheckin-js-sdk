@@ -1,6 +1,6 @@
 import type CSCAuth from "../../auth";
-import PostAuthMethod from "../../request/encapsulation/post_auth_method";
-import { ShareResponseSchema } from "../../types/course/resp_share";
+import { ShareResponseSchema } from "../../types";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Share this course to Google Classroom.
@@ -11,10 +11,10 @@ export default async function ShareToClassroom(
   courseId: string,
   auth: CSCAuth
 ) {
-  return PostAuthMethod(
-    `/course/share/${courseId}/post`,
-    {},
-    auth,
-    ShareResponseSchema
+  const response = clientInstance.jsonFetcher(
+    `/course/share/${courseId}`,
+    Client.postJsonRequest({}, await Client.authRequest(auth))
   );
+
+  return Client.responseParser(response, ShareResponseSchema);
 }

@@ -1,6 +1,5 @@
 import type CSCAuth from "../../auth";
-import BuildUri from "../../request/build_uri";
-import PostJsonAuth from "../../request/json/post_auth";
+import Client, { clientInstance } from "../../request/client";
 
 /**
  * Sync the members list of the specified course.
@@ -9,11 +8,10 @@ export default async function SyncCourseMembers(
   courseId: number,
   auth: CSCAuth
 ) {
-  const response = await PostJsonAuth(
-    BuildUri(`/course/sync/${courseId}`),
-    {},
-    auth
+  const [, error, extra] = await clientInstance.jsonFetcher(
+    `/course/sync/${courseId}`,
+    Client.postJsonRequest({}, await Client.authRequest(auth))
   );
 
-  return response?.ok ?? false;
+  return Client.isResponseOk(extra?.statusCode ?? -1, error);
 }
