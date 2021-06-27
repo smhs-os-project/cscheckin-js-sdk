@@ -3,7 +3,6 @@ import {
   AuthIdentRequest,
 } from "./auth/req_auth_ident";
 import {
-  Organization,
   AuthTokenRequestSchema,
   AuthTokenRequest,
 } from "./auth/req_auth_token";
@@ -16,10 +15,6 @@ import {
   AuthUserResponse,
 } from "./auth/resp_auth_user";
 import { CheckinState } from "./common/checkin_state";
-import {
-  IsApiWorkingResponseSchema,
-  IsApiWorkingResponse,
-} from "./common/resp_is_api_working";
 import {
   CreateCourseRequestSchema,
   CreateCourseRequest,
@@ -42,12 +37,6 @@ import {
   StandardErrorResponse,
 } from "./error/std_error";
 import {
-  OrgInfoResponseSchema,
-  OrgInfoListResponseSchema,
-  OrgInfoResponse,
-  OrgInfoListResponse,
-} from "./org_info/resp_org_info";
-import {
   TeacherCheckinResponseSchema,
   TeacherCheckinListResponseSchema,
   TeacherCheckinResponse,
@@ -57,7 +46,6 @@ import {
 export {
   AuthIdentRequestSchema,
   AuthIdentRequest,
-  Organization,
   AuthTokenRequestSchema,
   AuthTokenRequest,
   AuthTokenResponseSchema,
@@ -65,8 +53,6 @@ export {
   AuthUserResponseSchema,
   AuthUserResponse,
   CheckinState,
-  IsApiWorkingResponseSchema,
-  IsApiWorkingResponse,
   CreateCourseRequestSchema,
   CreateCourseRequest,
   CourseResponseSchema,
@@ -81,10 +67,6 @@ export {
   ShareResponse,
   StandardErrorResponseSchema,
   StandardErrorResponse,
-  OrgInfoResponseSchema,
-  OrgInfoListResponseSchema,
-  OrgInfoResponse,
-  OrgInfoListResponse,
   TeacherCheckinResponseSchema,
   TeacherCheckinListResponseSchema,
   TeacherCheckinResponse,

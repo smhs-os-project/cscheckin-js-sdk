@@ -1,12 +1,6 @@
 import type { Infer } from "myzod";
 import myzod from "myzod";
 
-export enum Organization {
-  SMHS = "smhs",
-  FSSH = "fssh",
-  COMMON = "common",
-}
-
 export const AuthTokenRequestSchema = myzod.object({
   id_token: myzod.string(),
   access_token: myzod.string(),
