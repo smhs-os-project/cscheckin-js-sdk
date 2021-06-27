@@ -1,10 +1,10 @@
-import type { AuthTokenRequest, Organization } from "../../types/auth/req_auth_token";
+import type { AuthTokenRequest } from "../../types";
 /**
  * Get the access token.
  *
- * @organization The organization issuing the id_token and access_token
+ * @param request The Google token ID & access token
  */
-export default function GetAccessToken(organization: Organization, request: AuthTokenRequest): Promise<import("../../types/error/std_error").WouldFail<{
+export default function GetAccessToken(request: AuthTokenRequest): Promise<import("../../request/client").ParsedResponse<{
     access_token: string;
     token_type: string;
     exp: number;
@@ -22,5 +22,8 @@ export default function GetAccessToken(organization: Organization, request: Auth
         created_at: string;
         updated_at: string;
     };
-}>>;
+}, {
+    error?: string | undefined;
+    message?: string | undefined;
+}, null>>;
 //# sourceMappingURL=get_access_token.d.ts.map

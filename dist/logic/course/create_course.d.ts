@@ -1,5 +1,5 @@
 import type CSCAuth from "../../auth";
-import type { CreateCourseRequest } from "../../types/course/req_course";
+import type { CreateCourseRequest } from "../../types";
 /**
  * Create a course.
  *
@@ -12,7 +12,7 @@ import type { CreateCourseRequest } from "../../types/course/req_course";
  * });
  * ```
  */
-export default function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
+export default function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<{
     id: number;
     name: string;
     created_at: string;
@@ -23,5 +23,8 @@ export default function CreateCourse(classroomId: string, request: CreateCourseR
     google_classroom_id: string;
     teacher_id: number;
     uuid: string;
-}>>;
+}, {
+    error?: string | undefined;
+    message?: string | undefined;
+}, null>>;
 //# sourceMappingURL=create_course.d.ts.map

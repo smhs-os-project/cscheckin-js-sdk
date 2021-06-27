@@ -1,1 +1,0 @@
-{"version":3,"file":"get_base.js","sourceRoot":"","sources":["../../../src/request/json/get_base.ts"],"names":[],"mappings":";;AAAA,uBAAqB;AACrB,sCAAsC;AAEtC,SAAwB,WAAW,CACjC,GAAgB,EAChB,EAAE,OAAO,EAAE,GAAG,IAAI,EAAe;IAEjC,OAAO,KAAK,CAAC,GAAG,EAAE;QAChB,GAAG,IAAI;QACP,OAAO,EAAE;YACP,YAAY,EAAE,kBAAS;YACvB,GAAG,OAAO;SACX;KACF,CAAC,CAAC;AACL,CAAC;AAXD,8BAWC"}

@@ -3,9 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.GetOrganizationList = exports.GetOrganization = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = exports.IsApiWorking = void 0;
-const is_api_working_1 = __importDefault(require("./logic/common/is_api_working"));
-exports.IsApiWorking = is_api_working_1.default;
+exports.ExtractCheckinState = exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = void 0;
 const close_course_1 = __importDefault(require("./logic/course/close_course"));
 exports.CloseCourse = close_course_1.default;
 const create_course_1 = __importDefault(require("./logic/course/create_course"));
@@ -23,14 +21,12 @@ const share_to_classroom_1 = __importDefault(require("./logic/course/share_to_cl
 exports.ShareToClassroom = share_to_classroom_1.default;
 const sync_course_members_1 = __importDefault(require("./logic/course/sync_course_members"));
 exports.SyncCourseMembers = sync_course_members_1.default;
-const get_org_1 = __importDefault(require("./logic/org/get_org"));
-exports.GetOrganization = get_org_1.default;
-const get_org_list_1 = __importDefault(require("./logic/org/get_org_list"));
-exports.GetOrganizationList = get_org_list_1.default;
 const checkin_1 = __importDefault(require("./logic/student/checkin"));
 exports.Checkin = checkin_1.default;
 const checkin_list_1 = __importDefault(require("./logic/teacher/checkin_list"));
 exports.CheckinList = checkin_list_1.default;
+const extract_course_status_1 = __importDefault(require("./utilities/extract_course_status"));
+exports.ExtractCheckinState = extract_course_status_1.default;
 const is_after_1 = require("./utilities/is_after");
 Object.defineProperty(exports, "isAfter", { enumerable: true, get: function () { return is_after_1.isAfter; } });
 Object.defineProperty(exports, "isBefore", { enumerable: true, get: function () { return is_after_1.isBefore; } });

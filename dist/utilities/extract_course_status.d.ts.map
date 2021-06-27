@@ -1,0 +1,1 @@
+{"version":3,"file":"extract_course_status.d.ts","sourceRoot":"","sources":["../../src/utilities/extract_course_status.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,+BAA+B,CAAC;AAC7D,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,6BAA6B,CAAC;AAGlE,MAAM,CAAC,OAAO,UAAU,mBAAmB,CACzC,MAAM,EAAE,cAAc,GACrB,YAAY,CASd"}

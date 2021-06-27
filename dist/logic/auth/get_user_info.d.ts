@@ -2,7 +2,7 @@ import type CSCAuth from "../../auth";
 /**
  * Get the owner info by @param auth.
  */
-export default function GetUserInfo(auth: CSCAuth): Promise<import("../../types/error/std_error").WouldFail<{
+export default function GetUserInfo(auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<{
     student?: {
         number: string;
         class: string;
@@ -15,5 +15,8 @@ export default function GetUserInfo(auth: CSCAuth): Promise<import("../../types/
     photo: string;
     created_at: string;
     updated_at: string;
-}>>;
+}, {
+    error?: string | undefined;
+    message?: string | undefined;
+}, null>>;
 //# sourceMappingURL=get_user_info.d.ts.map

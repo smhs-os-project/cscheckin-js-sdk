@@ -1,1 +1,1 @@
-{"version":3,"file":"revoke_access_token.d.ts","sourceRoot":"","sources":["../../../src/logic/auth/revoke_access_token.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;;;GAIG;AACH,wBAA8B,iBAAiB,CAC7C,IAAI,EAAE,OAAO,GACZ,OAAO,CAAC,OAAO,CAAC,CAIlB"}
+{"version":3,"file":"revoke_access_token.d.ts","sourceRoot":"","sources":["../../../src/logic/auth/revoke_access_token.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAGtC;;;;GAIG;AACH,wBAA8B,iBAAiB,CAAC,IAAI,EAAE,OAAO;;WAS5D"}

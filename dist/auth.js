@@ -29,18 +29,14 @@ const get_access_token_1 = __importDefault(require("./logic/auth/get_access_toke
 const get_user_info_1 = __importDefault(require("./logic/auth/get_user_info"));
 const revoke_access_token_1 = __importDefault(require("./logic/auth/revoke_access_token"));
 const set_ident_1 = __importDefault(require("./logic/auth/set_ident"));
-const req_auth_token_1 = require("./types/auth/req_auth_token");
-const resp_auth_token_1 = require("./types/auth/resp_auth_token");
-const resp_auth_user_1 = require("./types/auth/resp_auth_user");
+const types_1 = require("./types");
 exports.CSCAuthExportStructure = myzod_1.default.object({
-    organization: myzod_1.default.enum(req_auth_token_1.Organization),
     gIdToken: myzod_1.default.string(),
     gAccessToken: myzod_1.default.string(),
-    accessData: resp_auth_token_1.AuthTokenResponseSchema.optional(),
+    accessData: types_1.AuthTokenResponseSchema.optional(),
 });
 class CSCAuth {
-    constructor(organization, gIdToken, gAccessToken) {
-        this.organization = organization;
+    constructor(gIdToken, gAccessToken) {
         this.gIdToken = gIdToken;
         this.gAccessToken = gAccessToken;
         this.accessData = null;
@@ -48,11 +44,11 @@ class CSCAuth {
     async getAccessData() {
         // get lazily
         if (!this.accessData) {
-            const accessData = await get_access_token_1.default(this.organization, {
+            const accessData = await get_access_token_1.default({
                 id_token: this.gIdToken,
                 access_token: this.gAccessToken,
             });
-            const resp = resp_auth_token_1.AuthTokenResponseSchema.try(accessData);
+            const resp = types_1.AuthTokenResponseSchema.try(accessData);
             if (resp instanceof myzod_1.ValidationError) {
                 Sentry.captureMessage(`error: accessData is not a valid data: ${JSON.stringify(accessData)}`);
                 Sentry.captureException(resp);
@@ -73,7 +69,7 @@ class CSCAuth {
         const accessData = await this.getAccessData();
         if (accessData) {
             const rawInfo = await get_user_info_1.default(this);
-            const info = resp_auth_user_1.AuthUserResponseSchema.try(rawInfo);
+            const info = types_1.AuthUserResponseSchema.try(rawInfo);
             if (info instanceof myzod_1.ValidationError) {
                 Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
                 Sentry.captureException(info);
@@ -93,14 +89,13 @@ class CSCAuth {
         const deserialized = exports.CSCAuthExportStructure.try(JSON.parse(data));
         if (deserialized instanceof myzod_1.ValidationError)
             return null;
-        const { organization, gAccessToken, gIdToken, accessData } = deserialized;
-        const auth = new CSCAuth(organization, gAccessToken, gIdToken);
+        const { gAccessToken, gIdToken, accessData } = deserialized;
+        const auth = new CSCAuth(gAccessToken, gIdToken);
         auth.accessData = accessData || null;
         return auth;
     }
     export() {
         return JSON.stringify({
-            organization: this.organization,
             gAccessToken: this.gAccessToken,
             gIdToken: this.gIdToken,
             accessData: this.accessData,

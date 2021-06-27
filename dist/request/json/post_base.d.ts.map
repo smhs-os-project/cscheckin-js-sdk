@@ -1,1 +1,0 @@
-{"version":3,"file":"post_base.d.ts","sourceRoot":"","sources":["../../../src/request/json/post_base.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,CAAC;AAGrB,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,CAAC,SAAS,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,EACpE,GAAG,EAAE,WAAW,EAChB,IAAI,EAAE,CAAC,EACP,EAAE,OAAO,EAAE,IAAI,EAAE,GAAG,IAAI,EAAE,EAAE,WAAW,GACtC,OAAO,CAAC,QAAQ,CAAC,CAWnB"}

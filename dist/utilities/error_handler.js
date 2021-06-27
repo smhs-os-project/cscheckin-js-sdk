@@ -19,16 +19,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = __importStar(require("../../request/client"));
-/**
- * Set the identity of @param auth.
- *
- * @returns Is it success?
- */
-async function SetIdentity(request, auth) {
-    var _a;
-    const [, error, extra] = await client_1.clientInstance.textFetcher("/auth/student", client_1.default.postJsonRequest(request, await client_1.default.authRequest(auth)));
-    return client_1.default.isResponseOk((_a = extra === null || extra === void 0 ? void 0 : extra.statusCode) !== null && _a !== void 0 ? _a : -1, error);
+const Sentry = __importStar(require("@sentry/browser"));
+function exceptionHandler(exception) {
+    if (exception instanceof Error) {
+        Sentry.captureException(exception);
+    }
+    else
+        try {
+            Sentry.captureMessage(JSON.stringify(exception));
+        }
+        catch (e) {
+            Sentry.captureMessage("An non-parsable exception just triggered.");
+        }
+    console.error(exception); // TODO: the better logging way
 }
-exports.default = SetIdentity;
-//# sourceMappingURL=set_ident.js.map
+exports.default = exceptionHandler;
+//# sourceMappingURL=error_handler.js.map

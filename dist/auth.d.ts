@@ -1,8 +1,5 @@
-import { Organization } from "./types/auth/req_auth_token";
-import type { AuthTokenResponse } from "./types/auth/resp_auth_token";
-import type { AuthUserResponse } from "./types/auth/resp_auth_user";
+import type { AuthTokenResponse, AuthUserResponse } from "./types";
 export declare const CSCAuthExportStructure: import("myzod/libs/types").ObjectType<{
-    organization: import("myzod/libs/types").EnumType<typeof Organization>;
     gIdToken: import("myzod/libs/types").StringType;
     gAccessToken: import("myzod/libs/types").StringType;
     accessData: import("myzod/libs/types").OptionalType<import("myzod/libs/types").ObjectType<{
@@ -26,16 +23,19 @@ export declare const CSCAuthExportStructure: import("myzod/libs/types").ObjectTy
     }>>;
 }>;
 export default class CSCAuth {
-    private organization;
     private gIdToken;
     private gAccessToken;
     private accessData;
-    constructor(organization: Organization, gIdToken: string, gAccessToken: string);
+    constructor(gIdToken: string, gAccessToken: string);
     getAccessData(): Promise<AuthTokenResponse | null>;
     getAuthenticationHeader(): Promise<string | null>;
     userInfo(): Promise<AuthUserResponse | null>;
-    setIdentity(userClass: string, userNo: string): Promise<boolean>;
-    revoke(): Promise<boolean>;
+    setIdentity(userClass: string, userNo: string): Promise<import("./request/client").ParsedResponse<boolean, Error, {
+        statusCode: number;
+    } | null>>;
+    revoke(): Promise<import("./request/client").ParsedResponse<boolean, Error, {
+        statusCode: number;
+    } | null>>;
     static import(data: string): CSCAuth | null;
     export(): string;
 }
