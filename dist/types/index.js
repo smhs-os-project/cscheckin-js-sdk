@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
+exports.OrgInfoResponseSchema = exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
 const req_auth_ident_1 = require("./auth/req_auth_ident");
 Object.defineProperty(exports, "AuthIdentRequestSchema", { enumerable: true, get: function () { return req_auth_ident_1.AuthIdentRequestSchema; } });
 const req_auth_token_1 = require("./auth/req_auth_token");
@@ -9,6 +9,8 @@ const resp_auth_token_1 = require("./auth/resp_auth_token");
 Object.defineProperty(exports, "AuthTokenResponseSchema", { enumerable: true, get: function () { return resp_auth_token_1.AuthTokenResponseSchema; } });
 const resp_auth_user_1 = require("./auth/resp_auth_user");
 Object.defineProperty(exports, "AuthUserResponseSchema", { enumerable: true, get: function () { return resp_auth_user_1.AuthUserResponseSchema; } });
+const resp_client_id_1 = require("./auth/resp_client_id");
+Object.defineProperty(exports, "OrgInfoResponseSchema", { enumerable: true, get: function () { return resp_client_id_1.OrgInfoResponseSchema; } });
 const checkin_state_1 = require("./common/checkin_state");
 Object.defineProperty(exports, "CheckinState", { enumerable: true, get: function () { return checkin_state_1.CheckinState; } });
 const req_course_1 = require("./course/req_course");

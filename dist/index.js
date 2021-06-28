@@ -3,7 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtractCheckinState = exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.CreateCourse = exports.CloseCourse = void 0;
+exports.ExtractCheckinState = exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.GetClientId = exports.CreateCourse = exports.CloseCourse = void 0;
+const get_client_id_1 = __importDefault(require("./logic/auth/get_client_id"));
+exports.GetClientId = get_client_id_1.default;
 const close_course_1 = __importDefault(require("./logic/course/close_course"));
 exports.CloseCourse = close_course_1.default;
 const create_course_1 = __importDefault(require("./logic/course/create_course"));
