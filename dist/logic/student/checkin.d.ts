@@ -1,5 +1,3 @@
 import type CSCAuth from "../../auth";
-export default function Checkin(courseUUID: string, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<boolean, Error, {
-    statusCode: number;
-} | null>>;
+export default function Checkin(courseUUID: string, auth: CSCAuth): Promise<boolean>;
 //# sourceMappingURL=checkin.d.ts.map

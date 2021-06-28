@@ -2,7 +2,7 @@ import type CSCAuth from "../../auth";
 /**
  * Get the available courses.
  */
-export default function GetCoursesList(auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<{
+export default function GetCoursesList(auth: CSCAuth): Promise<{
     id: number;
     name: string;
     created_at: string;
@@ -13,8 +13,5 @@ export default function GetCoursesList(auth: CSCAuth): Promise<import("../../req
     google_classroom_id: string;
     teacher_id: number;
     uuid: string;
-}[], {
-    error?: string | undefined;
-    message?: string | undefined;
-}, null>>;
+}[]>;
 //# sourceMappingURL=get_courses_list.d.ts.map

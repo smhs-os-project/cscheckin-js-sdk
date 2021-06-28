@@ -1,1 +1,1 @@
-{"version":3,"file":"get_courses_list.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_courses_list.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;GAEG;AACH,wBAA8B,cAAc,CAAC,IAAI,EAAE,OAAO;;;;;;;;;;;;;;UAOzD"}
+{"version":3,"file":"get_courses_list.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_courses_list.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;GAEG;AACH,wBAA8B,cAAc,CAAC,IAAI,EAAE,OAAO;;;;;;;;;;;KAOzD"}

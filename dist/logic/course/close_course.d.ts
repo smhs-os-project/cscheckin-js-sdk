@@ -2,7 +2,5 @@ import type CSCAuth from "../../auth";
 /**
  * Close a course.
  */
-export default function CloseCourse(courseId: number, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<boolean, Error, {
-    statusCode: number;
-} | null>>;
+export default function CloseCourse(courseId: number, auth: CSCAuth): Promise<boolean>;
 //# sourceMappingURL=close_course.d.ts.map

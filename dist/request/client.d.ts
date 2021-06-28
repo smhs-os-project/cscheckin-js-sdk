@@ -1,20 +1,6 @@
 import type { AnyType } from "myzod/libs/types";
 import type { Infer } from "myzod";
-import type { StandardErrorResponse } from "../types";
 import type CSCAuth from "../auth";
-/**
- * A standard response from the client.
- *
- * The first parameter is the data, the second
- * parameter is the error and the third parameter
- * is the extra information. You can check if the response
- * is success by checking `response[0] !== null`.
- */
-export declare type ParsedResponse<Data, Error, Extra = unknown> = [
-    Data | null,
-    Error | null,
-    Extra | null
-];
 export default class Client {
     private backendURI;
     private static instance;
@@ -33,16 +19,18 @@ export default class Client {
      * The JSON fetcher.
      * @see Client.baseFetcher
      */
-    jsonFetcher(method: string, init: RequestInit): Promise<ParsedResponse<unknown, Error, {
+    jsonFetcher(method: string, init: RequestInit): Promise<{
+        data: unknown;
         statusCode: number;
-    }>>;
+    }>;
     /**
      * The text fetcher.
      * @see Client.baseFetcher
      */
-    textFetcher(method: string, init: RequestInit): Promise<ParsedResponse<string, Error, {
+    textFetcher(method: string, init: RequestInit): Promise<{
+        data: unknown;
         statusCode: number;
-    }>>;
+    }>;
     /**
      * Create the header for an authenticated request.
      *
@@ -65,13 +53,11 @@ export default class Client {
      *
      * @param response The response.
      * @param schema The response schema built with myzod.
+     * @throws ValidationError
      * @return [Type-casted Response, Error]
      */
-    static responseParser<T extends AnyType>(response: unknown, schema: T): ParsedResponse<Infer<T>, StandardErrorResponse, null>;
-    static isResponseOk(statusCode: number, error: unknown): ParsedResponse<boolean, Error, {
-        statusCode: number;
-    } | null>;
-    static exceptionToParseResponse<D, E, EX>(func: () => Promise<ParsedResponse<D, E, EX>>): Promise<ParsedResponse<D, E | Error, EX>>;
+    static responseParser<T extends AnyType>(response: unknown, schema: T): Infer<T>;
+    static isResponseOk(statusCode: number): boolean;
 }
 /**
  * The singleton client instance.

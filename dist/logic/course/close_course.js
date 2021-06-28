@@ -24,11 +24,10 @@ const client_1 = __importStar(require("../../request/client"));
  * Close a course.
  */
 async function CloseCourse(courseId, auth) {
-    var _a;
-    const [, error, extra] = await client_1.clientInstance.textFetcher(`/course/${courseId}`, await client_1.default.authRequest(auth, {
+    const { statusCode } = await client_1.clientInstance.textFetcher(`/course/${courseId}`, await client_1.default.authRequest(auth, {
         method: "DELETE",
     }));
-    return client_1.default.isResponseOk((_a = extra === null || extra === void 0 ? void 0 : extra.statusCode) !== null && _a !== void 0 ? _a : -1, error);
+    return client_1.default.isResponseOk(statusCode !== null && statusCode !== void 0 ? statusCode : -1);
 }
 exports.default = CloseCourse;
 //# sourceMappingURL=close_course.js.map

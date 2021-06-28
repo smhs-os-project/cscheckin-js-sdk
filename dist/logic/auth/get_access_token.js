@@ -28,8 +28,8 @@ const client_1 = __importStar(require("../../request/client"));
  */
 async function GetAccessToken(request) {
     const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
-    const [response] = await client_1.clientInstance.jsonFetcher(`/auth/token/${organization}`, client_1.default.postJsonRequest(request));
-    return client_1.default.responseParser(response, types_1.AuthTokenResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/auth/token/${organization}`, client_1.default.postJsonRequest(request));
+    return client_1.default.responseParser(data, types_1.AuthTokenResponseSchema);
 }
 exports.default = GetAccessToken;
 //# sourceMappingURL=get_access_token.js.map

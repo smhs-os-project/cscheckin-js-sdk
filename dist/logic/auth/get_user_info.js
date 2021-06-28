@@ -25,8 +25,8 @@ const client_1 = __importStar(require("../../request/client"));
  * Get the owner info by @param auth.
  */
 async function GetUserInfo(auth) {
-    const [response] = await client_1.clientInstance.jsonFetcher(`/auth/user`, await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.AuthUserResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/auth/user`, await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.AuthUserResponseSchema);
 }
 exports.default = GetUserInfo;
 //# sourceMappingURL=get_user_info.js.map

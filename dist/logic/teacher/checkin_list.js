@@ -22,8 +22,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const types_1 = require("../../types");
 const client_1 = __importStar(require("../../request/client"));
 async function CheckinList(courseId, auth) {
-    const [response] = await client_1.clientInstance.jsonFetcher(`/checkin/${courseId}`, await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.TeacherCheckinListResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/checkin/${courseId}`, await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.TeacherCheckinListResponseSchema);
 }
 exports.default = CheckinList;
 //# sourceMappingURL=checkin_list.js.map

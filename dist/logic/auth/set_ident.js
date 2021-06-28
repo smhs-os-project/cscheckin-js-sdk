@@ -26,9 +26,8 @@ const client_1 = __importStar(require("../../request/client"));
  * @returns Is it success?
  */
 async function SetIdentity(request, auth) {
-    var _a;
-    const [, error, extra] = await client_1.clientInstance.textFetcher("/auth/student", client_1.default.postJsonRequest(request, await client_1.default.authRequest(auth)));
-    return client_1.default.isResponseOk((_a = extra === null || extra === void 0 ? void 0 : extra.statusCode) !== null && _a !== void 0 ? _a : -1, error);
+    const { statusCode } = await client_1.clientInstance.textFetcher("/auth/student", client_1.default.postJsonRequest(request, await client_1.default.authRequest(auth)));
+    return client_1.default.isResponseOk(statusCode !== null && statusCode !== void 0 ? statusCode : -1);
 }
 exports.default = SetIdentity;
 //# sourceMappingURL=set_ident.js.map

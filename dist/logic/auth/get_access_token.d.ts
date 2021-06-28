@@ -4,7 +4,7 @@ import type { AuthTokenRequest } from "../../types";
  *
  * @param request The Google token ID & access token
  */
-export default function GetAccessToken(request: AuthTokenRequest): Promise<import("../../request/client").ParsedResponse<{
+export default function GetAccessToken(request: AuthTokenRequest): Promise<{
     access_token: string;
     token_type: string;
     exp: number;
@@ -22,8 +22,5 @@ export default function GetAccessToken(request: AuthTokenRequest): Promise<impor
         created_at: string;
         updated_at: string;
     };
-}, {
-    error?: string | undefined;
-    message?: string | undefined;
-}, null>>;
+}>;
 //# sourceMappingURL=get_access_token.d.ts.map

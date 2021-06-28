@@ -4,7 +4,5 @@ import type CSCAuth from "../../auth";
  *
  * @return Is it success?
  */
-export default function RevokeAccessToken(auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<boolean, Error, {
-    statusCode: number;
-} | null>>;
+export default function RevokeAccessToken(auth: CSCAuth): Promise<boolean>;
 //# sourceMappingURL=revoke_access_token.d.ts.map

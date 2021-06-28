@@ -5,7 +5,5 @@ import type { AuthIdentRequest } from "../../types";
  *
  * @returns Is it success?
  */
-export default function SetIdentity(request: AuthIdentRequest, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<boolean, Error, {
-    statusCode: number;
-} | null>>;
+export default function SetIdentity(request: AuthIdentRequest, auth: CSCAuth): Promise<boolean>;
 //# sourceMappingURL=set_ident.d.ts.map

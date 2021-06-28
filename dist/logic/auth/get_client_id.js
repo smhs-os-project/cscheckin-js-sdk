@@ -26,8 +26,8 @@ const types_1 = require("../../types");
  */
 async function GetClientId() {
     const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
-    const [response] = await client_1.clientInstance.jsonFetcher(`/info/${organization}`, {});
-    return client_1.default.responseParser(response, types_1.OrgInfoResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/info/${organization}`, {});
+    return client_1.default.responseParser(data, types_1.OrgInfoResponseSchema);
 }
 exports.default = GetClientId;
 //# sourceMappingURL=get_client_id.js.map

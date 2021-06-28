@@ -4,10 +4,7 @@ import type CSCAuth from "../../auth";
  *
  * @returns the link sent
  */
-export default function ShareToClassroom(courseId: string, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<{
+export default function ShareToClassroom(courseId: string, auth: CSCAuth): Promise<{
     link: string;
-}, {
-    error?: string | undefined;
-    message?: string | undefined;
-}, null>>;
+}>;
 //# sourceMappingURL=share_to_classroom.d.ts.map

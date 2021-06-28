@@ -12,7 +12,7 @@ import type { CreateCourseRequest } from "../../types";
  * });
  * ```
  */
-export default function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth): Promise<import("../../request/client").ParsedResponse<{
+export default function CreateCourse(classroomId: string, request: CreateCourseRequest, auth: CSCAuth): Promise<{
     id: number;
     name: string;
     created_at: string;
@@ -23,8 +23,5 @@ export default function CreateCourse(classroomId: string, request: CreateCourseR
     google_classroom_id: string;
     teacher_id: number;
     uuid: string;
-}, {
-    error?: string | undefined;
-    message?: string | undefined;
-}, null>>;
+}>;
 //# sourceMappingURL=create_course.d.ts.map

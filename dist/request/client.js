@@ -7,6 +7,7 @@ exports.clientInstance = void 0;
 const myzod_1 = require("myzod");
 const types_1 = require("../types");
 const error_handler_1 = __importDefault(require("../utilities/error_handler"));
+const sdk_response_exception_1 = __importDefault(require("../types/error/sdk_response_exception"));
 class Client {
     constructor() {
         this.backendURI = "https://api.csc.deershark.com/api";
@@ -45,34 +46,22 @@ class Client {
      * @see Client.baseFetcher
      */
     async jsonFetcher(method, init) {
-        return Client.exceptionToParseResponse(async () => {
-            const resp = await this.baseFetcher(method, init);
-            const deserialized = await resp.json();
-            return [
-                deserialized,
-                null,
-                {
-                    statusCode: resp.status,
-                },
-            ];
-        });
+        const resp = await this.baseFetcher(method, init);
+        return {
+            data: await resp.json(),
+            statusCode: resp.status,
+        };
     }
     /**
      * The text fetcher.
      * @see Client.baseFetcher
      */
     async textFetcher(method, init) {
-        return Client.exceptionToParseResponse(async () => {
-            const resp = await this.baseFetcher(method, init);
-            const deserialized = await resp.text();
-            return [
-                deserialized,
-                null,
-                {
-                    statusCode: resp.status,
-                },
-            ];
-        });
+        const resp = await this.baseFetcher(method, init);
+        return {
+            data: await resp.text(),
+            statusCode: resp.status,
+        };
     }
     /**
      * Create the header for an authenticated request.
@@ -84,7 +73,7 @@ class Client {
     static async authRequest(auth, { headers, ...init } = { headers: {} }) {
         const authenticationHeader = await auth.getAuthenticationHeader();
         if (!authenticationHeader)
-            throw new Error("Failed to create an authenticated request.");
+            throw new sdk_response_exception_1.default("Failed to create an authenticated request.");
         return {
             ...init,
             headers: {
@@ -117,6 +106,7 @@ class Client {
      *
      * @param response The response.
      * @param schema The response schema built with myzod.
+     * @throws ValidationError
      * @return [Type-casted Response, Error]
      */
     static responseParser(response, schema) {
@@ -126,36 +116,14 @@ class Client {
             const parsedError = types_1.StandardErrorResponseSchema.try(response);
             if (parsedError instanceof myzod_1.ValidationError) {
                 error_handler_1.default(parsedError);
-                return [null, null, null];
+                throw parsedError;
             }
-            return [null, parsedError, null];
+            throw parsedResponse;
         }
-        return [parsedResponse, null, null];
+        return parsedResponse;
     }
-    static isResponseOk(statusCode, error) {
-        const success = statusCode === 204;
-        if (error instanceof Error) {
-            error_handler_1.default(error);
-            return [
-                success,
-                error,
-                {
-                    statusCode,
-                },
-            ];
-        }
-        return [success, null, null];
-    }
-    static async exceptionToParseResponse(func) {
-        try {
-            return await func();
-        }
-        catch (e) {
-            error_handler_1.default(e);
-            if (e instanceof Error)
-                return [null, e, null];
-            return [null, new Error(e), null];
-        }
+    static isResponseOk(statusCode) {
+        return statusCode === 204;
     }
 }
 exports.default = Client;
