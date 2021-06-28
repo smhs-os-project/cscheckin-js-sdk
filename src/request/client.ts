@@ -143,7 +143,6 @@ export default class Client {
     const parsedResponse = schema.try(response);
 
     if (parsedResponse instanceof ValidationError) {
-      exceptionHandler(parsedResponse);
       const parsedError = StandardErrorResponseSchema.try(response);
 
       if (parsedError instanceof ValidationError) {
@@ -152,10 +151,13 @@ export default class Client {
       }
 
       if (parsedError.message) {
+        exceptionHandler(parsedError.message);
         throw new Error(parsedError.message);
       } else if (parsedError.error) {
+        exceptionHandler(parsedError.error);
         throw new Error(parsedError.error);
       } else {
+        exceptionHandler(parsedResponse);
         throw parsedResponse;
       }
     }
