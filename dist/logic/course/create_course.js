@@ -34,8 +34,8 @@ const types_1 = require("../../types");
  * ```
  */
 async function CreateCourse(classroomId, request, auth) {
-    const response = await client_1.clientInstance.jsonFetcher(`/course/${classroomId}`, client_1.default.postJsonRequest(request, await client_1.default.authRequest(auth)));
-    return client_1.default.responseParser(response, types_1.CourseResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/course/${classroomId}`, client_1.default.postJsonRequest(request, await client_1.default.authRequest(auth)));
+    return client_1.default.responseParser(data, types_1.CourseResponseSchema);
 }
 exports.default = CreateCourse;
 //# sourceMappingURL=create_course.js.map

@@ -25,8 +25,8 @@ const client_1 = __importStar(require("../../request/client"));
  * Get the share link.
  */
 async function GetShareLink(courseId, auth) {
-    const response = client_1.clientInstance.jsonFetcher(`/course/share/${courseId}`, await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.ShareResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/course/share/${courseId}`, await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.ShareResponseSchema);
 }
 exports.default = GetShareLink;
 //# sourceMappingURL=get_share_link.js.map

@@ -25,8 +25,8 @@ const client_1 = __importStar(require("../../request/client"));
  * Get the available classrooms.
  */
 async function GetClassroomsList(auth) {
-    const response = client_1.clientInstance.jsonFetcher("/course/google", await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.GClassroomListResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher("/course/google", await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.GClassroomListResponseSchema);
 }
 exports.default = GetClassroomsList;
 //# sourceMappingURL=get_classrooms_list.js.map

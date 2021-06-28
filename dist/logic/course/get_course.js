@@ -26,8 +26,8 @@ const client_1 = __importStar(require("../../request/client"));
  * Get the info of the specified UUID of course.
  */
 async function GetCourseByUUID(courseUUID) {
-    const response = await client_1.clientInstance.jsonFetcher(`/course/uuid/${courseUUID}`, {});
-    return client_1.default.responseParser(response, types_1.CourseResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/course/uuid/${courseUUID}`, {});
+    return client_1.default.responseParser(data, types_1.CourseResponseSchema);
 }
 exports.GetCourseByUUID = GetCourseByUUID;
 /**

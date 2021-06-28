@@ -25,8 +25,8 @@ const client_1 = __importStar(require("../../request/client"));
  * Get the available courses.
  */
 async function GetCoursesList(auth) {
-    const response = client_1.clientInstance.jsonFetcher("/course", await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.CourseListResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher("/course", await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.CourseListResponseSchema);
 }
 exports.default = GetCoursesList;
 //# sourceMappingURL=get_courses_list.js.map
