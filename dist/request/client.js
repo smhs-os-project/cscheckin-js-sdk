@@ -112,19 +112,21 @@ class Client {
     static responseParser(response, schema) {
         const parsedResponse = schema.try(response);
         if (parsedResponse instanceof myzod_1.ValidationError) {
-            error_handler_1.default(parsedResponse);
             const parsedError = types_1.StandardErrorResponseSchema.try(response);
             if (parsedError instanceof myzod_1.ValidationError) {
                 error_handler_1.default(parsedError);
                 throw parsedError;
             }
             if (parsedError.message) {
+                error_handler_1.default(parsedError.message);
                 throw new Error(parsedError.message);
             }
             else if (parsedError.error) {
+                error_handler_1.default(parsedError.error);
                 throw new Error(parsedError.error);
             }
             else {
+                error_handler_1.default(parsedResponse);
                 throw parsedResponse;
             }
         }
