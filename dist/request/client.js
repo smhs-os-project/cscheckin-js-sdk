@@ -118,7 +118,15 @@ class Client {
                 error_handler_1.default(parsedError);
                 throw parsedError;
             }
-            throw parsedResponse;
+            if (parsedError.message) {
+                throw new Error(parsedError.message);
+            }
+            else if (parsedError.error) {
+                throw new Error(parsedError.error);
+            }
+            else {
+                throw parsedResponse;
+            }
         }
         return parsedResponse;
     }
