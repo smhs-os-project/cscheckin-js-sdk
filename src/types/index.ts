@@ -14,6 +14,7 @@ import {
   AuthUserResponseSchema,
   AuthUserResponse,
 } from "./auth/resp_auth_user";
+import { OrgInfoResponse, OrgInfoResponseSchema } from "./auth/resp_client_id";
 import { CheckinState } from "./common/checkin_state";
 import {
   CreateCourseRequestSchema,
@@ -71,4 +72,6 @@ export {
   TeacherCheckinListResponseSchema,
   TeacherCheckinResponse,
   TeacherCheckinListResponse,
+  OrgInfoResponseSchema,
+  OrgInfoResponse,
 };
