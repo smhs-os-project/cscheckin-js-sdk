@@ -6,10 +6,10 @@ import { OrgInfoResponseSchema } from "../../types";
  */
 export default async function GetClientId() {
   const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
-  const [response] = await clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/info/${organization}`,
     {}
   );
 
-  return Client.responseParser(response, OrgInfoResponseSchema);
+  return Client.responseParser(data, OrgInfoResponseSchema);
 }

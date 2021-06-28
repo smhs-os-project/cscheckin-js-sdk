@@ -6,10 +6,10 @@ import Client, { clientInstance } from "../../request/client";
  * Get the owner info by @param auth.
  */
 export default async function GetUserInfo(auth: CSCAuth) {
-  const [response] = await clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/auth/user`,
     await Client.authRequest(auth)
   );
 
-  return Client.responseParser(response, AuthUserResponseSchema);
+  return Client.responseParser(data, AuthUserResponseSchema);
 }

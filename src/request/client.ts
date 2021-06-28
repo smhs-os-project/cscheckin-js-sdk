@@ -1,24 +1,10 @@
 import type { AnyType } from "myzod/libs/types";
 import type { Infer } from "myzod";
 import { ValidationError } from "myzod";
-import type { StandardErrorResponse } from "../types";
 import { StandardErrorResponseSchema } from "../types";
 import exceptionHandler from "../utilities/error_handler";
 import type CSCAuth from "../auth";
-
-/**
- * A standard response from the client.
- *
- * The first parameter is the data, the second
- * parameter is the error and the third parameter
- * is the extra information. You can check if the response
- * is success by checking `response[0] !== null`.
- */
-export type ParsedResponse<Data, Error, Extra = unknown> = [
-  Data | null,
-  Error | null,
-  Extra | null
-];
+import SDKResponseException from "../types/error/sdk_response_exception";
 
 export default class Client {
   private backendURI = "https://api.csc.deershark.com/api";
@@ -69,19 +55,12 @@ export default class Client {
   async jsonFetcher(
     method: string,
     init: RequestInit
-  ): Promise<ParsedResponse<unknown, Error, { statusCode: number }>> {
-    return Client.exceptionToParseResponse(async () => {
-      const resp = await this.baseFetcher(method, init);
-      const deserialized = await resp.json();
-
-      return [
-        deserialized,
-        null,
-        {
-          statusCode: resp.status,
-        },
-      ];
-    });
+  ): Promise<{ data: unknown; statusCode: number }> {
+    const resp = await this.baseFetcher(method, init);
+    return {
+      data: await resp.json(),
+      statusCode: resp.status,
+    };
   }
 
   /**
@@ -91,19 +70,12 @@ export default class Client {
   async textFetcher(
     method: string,
     init: RequestInit
-  ): Promise<ParsedResponse<string, Error, { statusCode: number }>> {
-    return Client.exceptionToParseResponse(async () => {
-      const resp = await this.baseFetcher(method, init);
-      const deserialized = await resp.text();
-
-      return [
-        deserialized,
-        null,
-        {
-          statusCode: resp.status,
-        },
-      ];
-    });
+  ): Promise<{ data: unknown; statusCode: number }> {
+    const resp = await this.baseFetcher(method, init);
+    return {
+      data: await resp.text(),
+      statusCode: resp.status,
+    };
   }
 
   /**
@@ -120,7 +92,9 @@ export default class Client {
     const authenticationHeader = await auth.getAuthenticationHeader();
 
     if (!authenticationHeader)
-      throw new Error("Failed to create an authenticated request.");
+      throw new SDKResponseException(
+        "Failed to create an authenticated request."
+      );
 
     return {
       ...init,
@@ -159,12 +133,13 @@ export default class Client {
    *
    * @param response The response.
    * @param schema The response schema built with myzod.
+   * @throws ValidationError
    * @return [Type-casted Response, Error]
    */
   static responseParser<T extends AnyType>(
     response: unknown,
     schema: T
-  ): ParsedResponse<Infer<T>, StandardErrorResponse, null> {
+  ): Infer<T> {
     const parsedResponse = schema.try(response);
 
     if (parsedResponse instanceof ValidationError) {
@@ -173,45 +148,17 @@ export default class Client {
 
       if (parsedError instanceof ValidationError) {
         exceptionHandler(parsedError);
-        return [null, null, null];
+        throw parsedError;
       }
 
-      return [null, parsedError, null];
+      throw parsedResponse;
     }
 
-    return [parsedResponse, null, null];
+    return parsedResponse;
   }
 
-  static isResponseOk(
-    statusCode: number,
-    error: unknown
-  ): ParsedResponse<boolean, Error, { statusCode: number } | null> {
-    const success = statusCode === 204;
-
-    if (error instanceof Error) {
-      exceptionHandler(error);
-      return [
-        success,
-        error,
-        {
-          statusCode,
-        },
-      ];
-    }
-
-    return [success, null, null];
-  }
-
-  static async exceptionToParseResponse<D, E, EX>(
-    func: () => Promise<ParsedResponse<D, E, EX>>
-  ): Promise<ParsedResponse<D, E | Error, EX>> {
-    try {
-      return await func();
-    } catch (e) {
-      exceptionHandler(e);
-      if (e instanceof Error) return [null, e, null];
-      return [null, new Error(e), null];
-    }
+  static isResponseOk(statusCode: number): boolean {
+    return statusCode === 204;
   }
 }
 

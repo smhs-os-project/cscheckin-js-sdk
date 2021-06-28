@@ -7,12 +7,12 @@ import Client, { clientInstance } from "../../request/client";
  * @return Is it success?
  */
 export default async function RevokeAccessToken(auth: CSCAuth) {
-  const [, error, extra] = await clientInstance.textFetcher(
+  const { statusCode } = await clientInstance.textFetcher(
     `/auth/token`,
     await Client.authRequest(auth, {
       method: "DELETE",
     })
   );
 
-  return Client.isResponseOk(extra?.statusCode ?? -1, error);
+  return Client.isResponseOk(statusCode ?? -1);
 }

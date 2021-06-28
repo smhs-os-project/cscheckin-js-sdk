@@ -11,10 +11,10 @@ export default async function SetIdentity(
   request: AuthIdentRequest,
   auth: CSCAuth
 ) {
-  const [, error, extra] = await clientInstance.textFetcher(
+  const { statusCode } = await clientInstance.textFetcher(
     "/auth/student",
     Client.postJsonRequest(request, await Client.authRequest(auth))
   );
 
-  return Client.isResponseOk(extra?.statusCode ?? -1, error);
+  return Client.isResponseOk(statusCode ?? -1);
 }

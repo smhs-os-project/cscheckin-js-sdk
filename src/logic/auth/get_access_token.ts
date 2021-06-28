@@ -9,10 +9,10 @@ import Client, { clientInstance } from "../../request/client";
  */
 export default async function GetAccessToken(request: AuthTokenRequest) {
   const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
-  const [response] = await clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/auth/token/${organization}`,
     Client.postJsonRequest(request)
   );
 
-  return Client.responseParser(response, AuthTokenResponseSchema);
+  return Client.responseParser(data, AuthTokenResponseSchema);
 }
