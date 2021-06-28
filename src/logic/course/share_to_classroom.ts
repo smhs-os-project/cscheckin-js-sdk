@@ -11,10 +11,10 @@ export default async function ShareToClassroom(
   courseId: string,
   auth: CSCAuth
 ) {
-  const response = clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/course/share/${courseId}`,
     Client.postJsonRequest({}, await Client.authRequest(auth))
   );
 
-  return Client.responseParser(response, ShareResponseSchema);
+  return Client.responseParser(data, ShareResponseSchema);
 }

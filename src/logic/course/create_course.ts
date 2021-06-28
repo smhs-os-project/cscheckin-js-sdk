@@ -20,10 +20,10 @@ export default async function CreateCourse(
   request: CreateCourseRequest,
   auth: CSCAuth
 ) {
-  const response = await clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/course/${classroomId}`,
     Client.postJsonRequest(request, await Client.authRequest(auth))
   );
 
-  return Client.responseParser(response, CourseResponseSchema);
+  return Client.responseParser(data, CourseResponseSchema);
 }

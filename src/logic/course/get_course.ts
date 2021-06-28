@@ -6,12 +6,12 @@ import Client, { clientInstance } from "../../request/client";
  * Get the info of the specified UUID of course.
  */
 export async function GetCourseByUUID(courseUUID: string) {
-  const response = await clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     `/course/uuid/${courseUUID}`,
     {}
   );
 
-  return Client.responseParser(response, CourseResponseSchema);
+  return Client.responseParser(data, CourseResponseSchema);
 }
 
 /**

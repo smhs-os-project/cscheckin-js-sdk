@@ -6,10 +6,10 @@ import Client, { clientInstance } from "../../request/client";
  * Get the available courses.
  */
 export default async function GetCoursesList(auth: CSCAuth) {
-  const response = clientInstance.jsonFetcher(
+  const { data } = await clientInstance.jsonFetcher(
     "/course",
     await Client.authRequest(auth)
   );
 
-  return Client.responseParser(response, CourseListResponseSchema);
+  return Client.responseParser(data, CourseListResponseSchema);
 }
