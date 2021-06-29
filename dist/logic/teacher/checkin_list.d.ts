@@ -1,5 +1,5 @@
 import type CSCAuth from "../../auth";
-export default function CheckinList(courseId: string, auth: CSCAuth): Promise<{
+export default function CheckinList(courseId: number, auth: CSCAuth): Promise<{
     number: string;
     class: string;
     name: string;
