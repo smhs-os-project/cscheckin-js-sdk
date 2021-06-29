@@ -8,7 +8,7 @@ import Client, { clientInstance } from "../../request/client";
  * @returns the link sent
  */
 export default async function ShareToClassroom(
-  courseId: string,
+  courseId: number,
   auth: CSCAuth
 ) {
   const { data } = await clientInstance.jsonFetcher(
