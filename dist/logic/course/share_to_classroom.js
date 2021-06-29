@@ -27,7 +27,7 @@ const client_1 = __importStar(require("../../request/client"));
  * @returns the link sent
  */
 async function ShareToClassroom(courseId, auth) {
-    const { data } = await client_1.clientInstance.jsonFetcher(`/course/share/${courseId}`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
+    const { data } = await client_1.clientInstance.jsonFetcher(`/course/share/${courseId}/post`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
     return client_1.default.responseParser(data, types_1.ShareResponseSchema);
 }
 exports.default = ShareToClassroom;
