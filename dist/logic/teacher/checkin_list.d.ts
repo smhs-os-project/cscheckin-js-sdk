@@ -4,7 +4,7 @@ export default function CheckinList(courseId: number, auth: CSCAuth): Promise<{
     class: string;
     name: string;
     created_at: string | Date;
-    checkin_id: number;
     state: import("../../types").CheckinState;
+    checkin_id: number;
 }[]>;
 //# sourceMappingURL=checkin_list.d.ts.map

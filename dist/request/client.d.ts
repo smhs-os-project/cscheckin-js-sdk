@@ -57,6 +57,10 @@ export default class Client {
      * @return [Type-casted Response, Error]
      */
     static responseParser<T extends AnyType>(response: unknown, schema: T): Infer<T>;
+    /**
+     * This method emulated what `response.ok` does.
+     * @param statusCode
+     */
     static isResponseOk(statusCode: number): boolean;
 }
 /**

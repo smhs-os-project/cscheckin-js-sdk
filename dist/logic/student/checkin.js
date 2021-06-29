@@ -20,9 +20,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importStar(require("../../request/client"));
+const resp_checkin_1 = require("../../types/student/resp_checkin");
 async function Checkin(courseUUID, auth) {
-    const { statusCode } = await client_1.clientInstance.jsonFetcher(`/checkin/${courseUUID}`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
-    return client_1.default.isResponseOk(statusCode !== null && statusCode !== void 0 ? statusCode : -1);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/checkin/${courseUUID}`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
+    return client_1.default.responseParser(data, resp_checkin_1.CheckinResponseSchema);
 }
 exports.default = Checkin;
 //# sourceMappingURL=checkin.js.map

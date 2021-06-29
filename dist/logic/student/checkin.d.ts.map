@@ -1,1 +1,1 @@
-{"version":3,"file":"checkin.d.ts","sourceRoot":"","sources":["../../../src/logic/student/checkin.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAGtC,wBAA8B,OAAO,CAAC,UAAU,EAAE,MAAM,EAAE,IAAI,EAAE,OAAO,oBAOtE"}
+{"version":3,"file":"checkin.d.ts","sourceRoot":"","sources":["../../../src/logic/student/checkin.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC,wBAA8B,OAAO,CAAC,UAAU,EAAE,MAAM,EAAE,IAAI,EAAE,OAAO;;;;;;;GAOtE"}

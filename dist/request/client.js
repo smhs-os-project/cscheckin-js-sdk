@@ -132,8 +132,17 @@ class Client {
         }
         return parsedResponse;
     }
+    /**
+     * This method emulated what `response.ok` does.
+     * @param statusCode
+     */
     static isResponseOk(statusCode) {
-        return statusCode === 204;
+        // The ok read-only property of the Response interface contains
+        // a Boolean stating whether the response was successful
+        // (status in the range 200-299) or not.
+        //
+        // https://developer.mozilla.org/en-US/docs/Web/API/Response/ok
+        return !(statusCode < 200 || statusCode >= 300);
     }
 }
 exports.default = Client;

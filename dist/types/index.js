@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrgInfoResponseSchema = exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
+exports.OrgInfoResponseSchema = exports.CheckinResponseSchema = exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
 const req_auth_ident_1 = require("./auth/req_auth_ident");
 Object.defineProperty(exports, "AuthIdentRequestSchema", { enumerable: true, get: function () { return req_auth_ident_1.AuthIdentRequestSchema; } });
 const req_auth_token_1 = require("./auth/req_auth_token");
@@ -25,6 +25,8 @@ const resp_share_1 = require("./course/resp_share");
 Object.defineProperty(exports, "ShareResponseSchema", { enumerable: true, get: function () { return resp_share_1.ShareResponseSchema; } });
 const std_error_1 = require("./error/std_error");
 Object.defineProperty(exports, "StandardErrorResponseSchema", { enumerable: true, get: function () { return std_error_1.StandardErrorResponseSchema; } });
+const resp_checkin_1 = require("./student/resp_checkin");
+Object.defineProperty(exports, "CheckinResponseSchema", { enumerable: true, get: function () { return resp_checkin_1.CheckinResponseSchema; } });
 const resp_checkin_list_1 = require("./teacher/resp_checkin_list");
 Object.defineProperty(exports, "TeacherCheckinResponseSchema", { enumerable: true, get: function () { return resp_checkin_list_1.TeacherCheckinResponseSchema; } });
 Object.defineProperty(exports, "TeacherCheckinListResponseSchema", { enumerable: true, get: function () { return resp_checkin_list_1.TeacherCheckinListResponseSchema; } });
