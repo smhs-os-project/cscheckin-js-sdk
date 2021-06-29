@@ -8,7 +8,7 @@ export default async function SyncCourseMembers(
   courseId: number,
   auth: CSCAuth
 ) {
-  const { statusCode } = await clientInstance.jsonFetcher(
+  const { statusCode } = await clientInstance.textFetcher(
     `/course/sync/${courseId}`,
     Client.postJsonRequest({}, await Client.authRequest(auth))
   );
