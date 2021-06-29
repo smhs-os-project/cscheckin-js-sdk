@@ -1,6 +1,6 @@
 import type { Infer } from "myzod";
 import myzod from "myzod";
-import { CheckinState } from "../index";
+import { CheckinState } from "../common/checkin_state";
 
 export const CheckinResponseSchema = myzod.object({
   course_id: myzod.number(),

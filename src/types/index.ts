@@ -37,6 +37,7 @@ import {
   StandardErrorResponseSchema,
   StandardErrorResponse,
 } from "./error/std_error";
+import { CheckinResponse, CheckinResponseSchema } from "./student/resp_checkin";
 import {
   TeacherCheckinResponseSchema,
   TeacherCheckinListResponseSchema,
@@ -72,6 +73,8 @@ export {
   TeacherCheckinListResponseSchema,
   TeacherCheckinResponse,
   TeacherCheckinListResponse,
+  CheckinResponseSchema,
+  CheckinResponse,
   OrgInfoResponseSchema,
   OrgInfoResponse,
 };
