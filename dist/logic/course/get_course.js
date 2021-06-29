@@ -34,8 +34,8 @@ exports.GetCourseByUUID = GetCourseByUUID;
  * Get the info of the specified ID of course.
  */
 async function GetCourseByID(courseId, auth) {
-    const response = await client_1.clientInstance.jsonFetcher(`/course/uuid/${courseId}`, await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(response, types_1.CourseResponseSchema);
+    const { data } = await client_1.clientInstance.jsonFetcher(`/course/id/${courseId}`, await client_1.default.authRequest(auth));
+    return client_1.default.responseParser(data, types_1.CourseResponseSchema);
 }
 exports.GetCourseByID = GetCourseByID;
 //# sourceMappingURL=get_course.js.map
