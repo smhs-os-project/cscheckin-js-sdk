@@ -18,10 +18,10 @@ export async function GetCourseByUUID(courseUUID: string) {
  * Get the info of the specified ID of course.
  */
 export async function GetCourseByID(courseId: number, auth: CSCAuth) {
-  const response = await clientInstance.jsonFetcher(
-    `/course/uuid/${courseId}`,
+  const { data } = await clientInstance.jsonFetcher(
+    `/course/id/${courseId}`,
     await Client.authRequest(auth)
   );
 
-  return Client.responseParser(response, CourseResponseSchema);
+  return Client.responseParser(data, CourseResponseSchema);
 }
