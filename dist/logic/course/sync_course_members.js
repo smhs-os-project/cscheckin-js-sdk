@@ -24,7 +24,7 @@ const client_1 = __importStar(require("../../request/client"));
  * Sync the members list of the specified course.
  */
 async function SyncCourseMembers(courseId, auth) {
-    const { statusCode } = await client_1.clientInstance.jsonFetcher(`/course/sync/${courseId}`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
+    const { statusCode } = await client_1.clientInstance.textFetcher(`/course/sync/${courseId}`, client_1.default.postJsonRequest({}, await client_1.default.authRequest(auth)));
     return client_1.default.isResponseOk(statusCode !== null && statusCode !== void 0 ? statusCode : -1);
 }
 exports.default = SyncCourseMembers;
