@@ -18,6 +18,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -41,49 +50,59 @@ class CSCAuth {
         this.gAccessToken = gAccessToken;
         this.accessData = null;
     }
-    async getAccessData() {
-        // get lazily
-        if (!this.accessData) {
-            const accessData = await get_access_token_1.default({
-                id_token: this.gIdToken,
-                access_token: this.gAccessToken,
-            });
-            const resp = types_1.AuthTokenResponseSchema.try(accessData);
-            if (resp instanceof myzod_1.ValidationError) {
-                Sentry.captureMessage(`error: accessData is not a valid data: ${JSON.stringify(accessData)}`);
-                Sentry.captureException(resp);
+    getAccessData() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // get lazily
+            if (!this.accessData) {
+                const accessData = yield get_access_token_1.default({
+                    id_token: this.gIdToken,
+                    access_token: this.gAccessToken,
+                });
+                const resp = types_1.AuthTokenResponseSchema.try(accessData);
+                if (resp instanceof myzod_1.ValidationError) {
+                    Sentry.captureMessage(`error: accessData is not a valid data: ${JSON.stringify(accessData)}`);
+                    Sentry.captureException(resp);
+                }
+                else {
+                    this.accessData = resp;
+                }
             }
-            else {
-                this.accessData = resp;
+            return this.accessData;
+        });
+    }
+    getAuthenticationHeader() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const accessData = yield this.getAccessData();
+            if (accessData)
+                return `Bearer ${accessData.access_token}`;
+            return null;
+        });
+    }
+    userInfo() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const accessData = yield this.getAccessData();
+            if (accessData) {
+                const rawInfo = yield get_user_info_1.default(this);
+                const info = types_1.AuthUserResponseSchema.try(rawInfo);
+                if (info instanceof myzod_1.ValidationError) {
+                    Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
+                    Sentry.captureException(info);
+                    return null;
+                }
+                return info;
             }
-        }
-        return this.accessData;
+            return null;
+        });
     }
-    async getAuthenticationHeader() {
-        const accessData = await this.getAccessData();
-        if (accessData)
-            return `Bearer ${accessData.access_token}`;
-        return null;
+    setIdentity(userClass, userNo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return set_ident_1.default({ class: userClass, number: userNo }, this);
+        });
     }
-    async userInfo() {
-        const accessData = await this.getAccessData();
-        if (accessData) {
-            const rawInfo = await get_user_info_1.default(this);
-            const info = types_1.AuthUserResponseSchema.try(rawInfo);
-            if (info instanceof myzod_1.ValidationError) {
-                Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
-                Sentry.captureException(info);
-                return null;
-            }
-            return info;
-        }
-        return null;
-    }
-    async setIdentity(userClass, userNo) {
-        return set_ident_1.default({ class: userClass, number: userNo }, this);
-    }
-    async revoke() {
-        return revoke_access_token_1.default(this);
+    revoke() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return revoke_access_token_1.default(this);
+        });
     }
     static import(data) {
         const deserialized = exports.CSCAuthExportStructure.try(JSON.parse(data));

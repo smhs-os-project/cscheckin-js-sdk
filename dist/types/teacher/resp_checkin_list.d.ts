@@ -1,20 +1,20 @@
 import type { Infer } from "myzod";
 import { CheckinState } from "../common/checkin_state";
-export declare const TeacherCheckinResponseSchema: import("myzod/libs/types").ObjectType<{
-    checkin_id: import("myzod/libs/types").NumberType;
+export declare const TeacherCheckinResponseSchema: import("myzod").ObjectType<{
+    checkin_id: import("myzod").NumberType;
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
-    created_at: import("myzod/libs/types").UnionType<[import("myzod/libs/types").DateType, import("myzod/libs/types").StringType]>;
-    name: import("myzod/libs/types").StringType;
-    class: import("myzod/libs/types").StringType;
-    number: import("myzod/libs/types").StringType;
+    created_at: import("myzod").UnionType<[import("myzod").DateType, import("myzod").StringType]>;
+    name: import("myzod").StringType;
+    class: import("myzod").StringType;
+    number: import("myzod").StringType;
 }>;
-export declare const TeacherCheckinListResponseSchema: import("myzod/libs/types").ArrayType<import("myzod/libs/types").ObjectType<{
-    checkin_id: import("myzod/libs/types").NumberType;
+export declare const TeacherCheckinListResponseSchema: import("myzod").ArrayType<import("myzod").ObjectType<{
+    checkin_id: import("myzod").NumberType;
     state: import("myzod/libs/types").EnumType<typeof CheckinState>;
-    created_at: import("myzod/libs/types").UnionType<[import("myzod/libs/types").DateType, import("myzod/libs/types").StringType]>;
-    name: import("myzod/libs/types").StringType;
-    class: import("myzod/libs/types").StringType;
-    number: import("myzod/libs/types").StringType;
+    created_at: import("myzod").UnionType<[import("myzod").DateType, import("myzod").StringType]>;
+    name: import("myzod").StringType;
+    class: import("myzod").StringType;
+    number: import("myzod").StringType;
 }>>;
 export declare type TeacherCheckinResponse = Infer<typeof TeacherCheckinResponseSchema>;
 export declare type TeacherCheckinListResponse = Infer<typeof TeacherCheckinListResponseSchema>;

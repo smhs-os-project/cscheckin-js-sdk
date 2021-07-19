@@ -18,6 +18,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetCourseByID = exports.GetCourseByUUID = void 0;
 const types_1 = require("../../types");
@@ -25,17 +34,21 @@ const client_1 = __importStar(require("../../request/client"));
 /**
  * Get the info of the specified UUID of course.
  */
-async function GetCourseByUUID(courseUUID) {
-    const { data } = await client_1.clientInstance.jsonFetcher(`/course/uuid/${courseUUID}`, {});
-    return client_1.default.responseParser(data, types_1.CourseResponseSchema);
+function GetCourseByUUID(courseUUID) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { data } = yield client_1.clientInstance.jsonFetcher(`/course/uuid/${courseUUID}`, {});
+        return client_1.default.responseParser(data, types_1.CourseResponseSchema);
+    });
 }
 exports.GetCourseByUUID = GetCourseByUUID;
 /**
  * Get the info of the specified ID of course.
  */
-async function GetCourseByID(courseId, auth) {
-    const { data } = await client_1.clientInstance.jsonFetcher(`/course/id/${courseId}`, await client_1.default.authRequest(auth));
-    return client_1.default.responseParser(data, types_1.CourseResponseSchema);
+function GetCourseByID(courseId, auth) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { data } = yield client_1.clientInstance.jsonFetcher(`/course/id/${courseId}`, yield client_1.default.authRequest(auth));
+        return client_1.default.responseParser(data, types_1.CourseResponseSchema);
+    });
 }
 exports.GetCourseByID = GetCourseByID;
 //# sourceMappingURL=get_course.js.map

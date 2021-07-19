@@ -1,23 +1,23 @@
 import type { Infer } from "myzod";
-export declare const AuthTokenResponseSchema: import("myzod/libs/types").ObjectType<{
-    access_token: import("myzod/libs/types").StringType;
-    token_type: import("myzod/libs/types").StringType;
+export declare const AuthTokenResponseSchema: import("myzod").ObjectType<{
+    access_token: import("myzod").StringType;
+    token_type: import("myzod").StringType;
     /**
      * `exp` is an unix timestamp.
      */
-    exp: import("myzod/libs/types").NumberType;
-    user: import("myzod/libs/types").ObjectType<{
-        id: import("myzod/libs/types").NumberType;
-        google_user_id: import("myzod/libs/types").StringType;
-        domain: import("myzod/libs/types").StringType;
-        name: import("myzod/libs/types").StringType;
-        email: import("myzod/libs/types").StringType;
-        photo: import("myzod/libs/types").StringType;
-        created_at: import("myzod/libs/types").StringType;
-        updated_at: import("myzod/libs/types").StringType;
-        student: import("myzod/libs/types").OptionalType<import("myzod/libs/types").ObjectType<{
-            class: import("myzod/libs/types").StringType;
-            number: import("myzod/libs/types").StringType;
+    exp: import("myzod").NumberType;
+    user: import("myzod").ObjectType<{
+        id: import("myzod").NumberType;
+        google_user_id: import("myzod").StringType;
+        domain: import("myzod").StringType;
+        name: import("myzod").StringType;
+        email: import("myzod").StringType;
+        photo: import("myzod").StringType;
+        created_at: import("myzod").StringType;
+        updated_at: import("myzod").StringType;
+        student: import("myzod").OptionalType<import("myzod").ObjectType<{
+            class: import("myzod").StringType;
+            number: import("myzod").StringType;
         }>>;
     }>;
 }>;

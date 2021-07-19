@@ -1,13 +1,13 @@
 import type { Infer } from "myzod";
-export declare const StandardErrorResponseSchema: import("myzod/libs/types").ObjectType<{
+export declare const StandardErrorResponseSchema: import("myzod").ObjectType<{
     /**
      * User Error
      */
-    error: import("myzod/libs/types").OptionalType<import("myzod/libs/types").StringType>;
+    error: import("myzod").OptionalType<import("myzod").StringType>;
     /**
      * Server Error
      */
-    message: import("myzod/libs/types").OptionalType<import("myzod/libs/types").StringType>;
+    message: import("myzod").OptionalType<import("myzod").StringType>;
 }>;
 export declare type StandardErrorResponse = Infer<typeof StandardErrorResponseSchema>;
 export declare type WouldFail<T> = T | StandardErrorResponse | null;

@@ -18,16 +18,27 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importStar(require("../../request/client"));
 const types_1 = require("../../types");
 /**
  * Get the Google OAuth2 client ID in the backend.
  */
-async function GetClientId() {
-    const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
-    const { data } = await client_1.clientInstance.jsonFetcher(`/info/${organization}`, {});
-    return client_1.default.responseParser(data, types_1.OrgInfoResponseSchema);
+function GetClientId() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
+        const { data } = yield client_1.clientInstance.jsonFetcher(`/info/${organization}`, {});
+        return client_1.default.responseParser(data, types_1.OrgInfoResponseSchema);
+    });
 }
 exports.default = GetClientId;
 //# sourceMappingURL=get_client_id.js.map
