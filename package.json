@@ -1,10 +1,15 @@
 {
   "name": "cscheckin-js-sdk",
-  "description": "The JavaScript / Node.js SDK for cscheckin",
   "version": "2.0.2-1",
-  "main": "dist/index.js",
-  "author": "pan93412",
+  "description": "The JavaScript / Node.js SDK for cscheckin",
   "license": "MIT",
+  "author": "pan93412",
+  "main": "dist/index.js",
+  "dependencies": {
+    "dayjs": "^1.10.6",
+    "myzod": "^1.8.5",
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/node-fetch": "^2.5.12",
@@ -15,13 +20,8 @@
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
+    "prettier": "^2.3.2",
     "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "dayjs": "^1.10.6",
-    "myzod": "^1.8.5",
-    "node-fetch": "^2.6.1",
-    "prettier": "^2.3.2"
   }
 }
