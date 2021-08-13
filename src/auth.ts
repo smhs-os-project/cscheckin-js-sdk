@@ -1,6 +1,4 @@
-import myzod, { ValidationError } from "myzod";
-
-import * as Sentry from "@sentry/browser";
+import myzod from "myzod";
 import GetAccessToken from "./logic/auth/get_access_token";
 import GetUserInfo from "./logic/auth/get_user_info";
 import RevokeAccessToken from "./logic/auth/revoke_access_token";
@@ -19,49 +17,27 @@ export default class CSCAuth {
 
   constructor(private gIdToken: string, private gAccessToken: string) {}
 
-  async getAccessData(): Promise<AuthTokenResponse | null> {
+  async getAccessData(): Promise<AuthTokenResponse> {
     // get lazily
     if (!this.accessData) {
       const accessData = await GetAccessToken({
         id_token: this.gIdToken,
         access_token: this.gAccessToken,
       });
-      const resp = AuthTokenResponseSchema.try(accessData);
-
-      if (resp instanceof ValidationError) {
-        Sentry.captureMessage(
-          `error: accessData is not a valid data: ${JSON.stringify(accessData)}`
-        );
-        Sentry.captureException(resp);
-      } else {
-        this.accessData = resp;
-      }
+      this.accessData = AuthTokenResponseSchema.parse(accessData);
     }
 
     return this.accessData;
   }
 
-  async getAuthenticationHeader(): Promise<string | null> {
+  async getAuthenticationHeader(): Promise<string> {
     const accessData = await this.getAccessData();
-    if (accessData) return `Bearer ${accessData.access_token}`;
-    return null;
+    return `Bearer ${accessData.access_token}`;
   }
 
-  async userInfo(): Promise<AuthUserResponse | null> {
-    const accessData = await this.getAccessData();
-    if (accessData) {
-      const rawInfo = await GetUserInfo(this);
-      const info = AuthUserResponseSchema.try(rawInfo);
-
-      if (info instanceof ValidationError) {
-        Sentry.captureMessage(`failed to get the user info: ${rawInfo}`);
-        Sentry.captureException(info);
-        return null;
-      }
-
-      return info;
-    }
-    return null;
+  async userInfo(): Promise<AuthUserResponse> {
+    const rawInfo = await GetUserInfo(this);
+    return AuthUserResponseSchema.parse(rawInfo);
   }
 
   async setIdentity(userClass: string, userNo: string) {
@@ -72,10 +48,8 @@ export default class CSCAuth {
     return RevokeAccessToken(this);
   }
 
-  static import(data: string): CSCAuth | null {
-    const deserialized = CSCAuthExportStructure.try(JSON.parse(data));
-    if (deserialized instanceof ValidationError) return null;
-
+  static import(data: string): CSCAuth {
+    const deserialized = CSCAuthExportStructure.parse(JSON.parse(data));
     const { gAccessToken, gIdToken, accessData } = deserialized;
     const auth = new CSCAuth(gAccessToken, gIdToken);
     auth.accessData = accessData || null;
