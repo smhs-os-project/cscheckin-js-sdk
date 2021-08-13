@@ -2,7 +2,6 @@ import type { AnyType } from "myzod/libs/types";
 import type { Infer } from "myzod";
 import { ValidationError } from "myzod";
 import { StandardErrorResponseSchema } from "../types";
-import exceptionHandler from "../utilities/error_handler";
 import type CSCAuth from "../auth";
 import SDKResponseException from "../types/error/sdk_response_exception";
 
@@ -146,18 +145,14 @@ export default class Client {
       const parsedError = StandardErrorResponseSchema.try(response);
 
       if (parsedError instanceof ValidationError) {
-        exceptionHandler(parsedError);
         throw parsedError;
       }
 
       if (parsedError.message) {
-        exceptionHandler(parsedError.message);
         throw new Error(parsedError.message);
       } else if (parsedError.error) {
-        exceptionHandler(parsedError.error);
         throw new Error(parsedError.error);
       } else {
-        exceptionHandler(parsedResponse);
         throw parsedResponse;
       }
     }
