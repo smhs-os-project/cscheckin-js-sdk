@@ -1,4 +1,4 @@
-import type { AuthTokenRequest } from "../../types";
+import type { AuthTokenRequest, AuthTokenResponse } from "../../types";
 import { AuthTokenResponseSchema } from "../../types";
 import Client, { clientInstance } from "../../request/client";
 
@@ -7,7 +7,9 @@ import Client, { clientInstance } from "../../request/client";
  *
  * @param request The Google token ID & access token
  */
-export default async function GetAccessToken(request: AuthTokenRequest) {
+export default async function GetAccessToken(
+  request: AuthTokenRequest
+): Promise<AuthTokenResponse> {
   const organization = "common"; // TODO: should be fixed when the backend dropped the organization support.
   const { data } = await clientInstance.jsonFetcher(
     `/auth/token/${organization}`,

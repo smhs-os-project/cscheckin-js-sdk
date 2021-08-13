@@ -1,8 +1,15 @@
 import type CSCAuth from "../../auth";
 import Client, { clientInstance } from "../../request/client";
-import { CheckinResponseSchema } from "../../types/student/resp_checkin";
+import type { CheckinResponse } from "../../types";
+import { CheckinResponseSchema } from "../../types";
 
-export default async function Checkin(courseUUID: string, auth: CSCAuth) {
+/**
+ * Check in the specified course.
+ */
+export default async function Checkin(
+  courseUUID: string,
+  auth: CSCAuth
+): Promise<CheckinResponse> {
   const { data } = await clientInstance.jsonFetcher(
     `/checkin/${courseUUID}`,
     Client.postJsonRequest({}, await Client.authRequest(auth))

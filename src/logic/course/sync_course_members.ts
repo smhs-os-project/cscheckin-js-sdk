@@ -7,7 +7,7 @@ import Client, { clientInstance } from "../../request/client";
 export default async function SyncCourseMembers(
   courseId: number,
   auth: CSCAuth
-) {
+): Promise<boolean> {
   const { statusCode } = await clientInstance.textFetcher(
     `/course/sync/${courseId}`,
     Client.postJsonRequest({}, await Client.authRequest(auth))

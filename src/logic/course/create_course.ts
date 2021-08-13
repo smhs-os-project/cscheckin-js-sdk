@@ -1,5 +1,5 @@
 import type CSCAuth from "../../auth";
-import type { CreateCourseRequest } from "../../types";
+import type { CourseResponse, CreateCourseRequest } from "../../types";
 import Client, { clientInstance } from "../../request/client";
 import { CourseResponseSchema } from "../../types";
 
@@ -19,7 +19,7 @@ export default async function CreateCourse(
   classroomId: string,
   request: CreateCourseRequest,
   auth: CSCAuth
-) {
+): Promise<CourseResponse> {
   const { data } = await clientInstance.jsonFetcher(
     `/course/${classroomId}`,
     Client.postJsonRequest(request, await Client.authRequest(auth))

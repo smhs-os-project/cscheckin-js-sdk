@@ -3,14 +3,12 @@ import type { AuthIdentRequest } from "../../types";
 import Client, { clientInstance } from "../../request/client";
 
 /**
- * Set the identity of @param auth.
- *
- * @returns Is it success?
+ * Set the student identity information for the credential holder.
  */
 export default async function SetIdentity(
   request: AuthIdentRequest,
   auth: CSCAuth
-) {
+): Promise<boolean> {
   const { statusCode } = await clientInstance.textFetcher(
     "/auth/student",
     Client.postJsonRequest(request, await Client.authRequest(auth))

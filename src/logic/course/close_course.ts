@@ -4,7 +4,10 @@ import Client, { clientInstance } from "../../request/client";
 /**
  * Close a course.
  */
-export default async function CloseCourse(courseId: number, auth: CSCAuth) {
+export default async function CloseCourse(
+  courseId: number,
+  auth: CSCAuth
+): Promise<boolean> {
   const { statusCode } = await clientInstance.textFetcher(
     `/course/${courseId}`,
     await Client.authRequest(auth, {

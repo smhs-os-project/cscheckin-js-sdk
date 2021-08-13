@@ -2,11 +2,11 @@ import type CSCAuth from "../../auth";
 import Client, { clientInstance } from "../../request/client";
 
 /**
- * Revoke the access token
- *
- * @return Is it success?
+ * Revoke the credential.
  */
-export default async function RevokeAccessToken(auth: CSCAuth) {
+export default async function RevokeAccessToken(
+  auth: CSCAuth
+): Promise<boolean> {
   const { statusCode } = await clientInstance.textFetcher(
     `/auth/token`,
     await Client.authRequest(auth, {
