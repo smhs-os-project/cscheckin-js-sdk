@@ -39,9 +39,9 @@ import {
 } from "./error/std_error";
 import { CheckinResponse, CheckinResponseSchema } from "./student/resp_checkin";
 import {
-  TeacherCheckinResponseSchema,
+  StudentCheckinInfoResponseSchema,
   TeacherCheckinListResponseSchema,
-  TeacherCheckinResponse,
+  StudentCheckinInfoResponse,
   TeacherCheckinListResponse,
 } from "./teacher/resp_checkin_list";
 
@@ -69,9 +69,9 @@ export {
   ShareResponse,
   StandardErrorResponseSchema,
   StandardErrorResponse,
-  TeacherCheckinResponseSchema,
+  StudentCheckinInfoResponseSchema,
   TeacherCheckinListResponseSchema,
-  TeacherCheckinResponse,
+  StudentCheckinInfoResponse,
   TeacherCheckinListResponse,
   CheckinResponseSchema,
   CheckinResponse,
