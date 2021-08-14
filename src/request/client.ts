@@ -3,7 +3,8 @@ import type { Infer } from "myzod";
 import { ValidationError } from "myzod";
 import { StandardErrorResponseSchema } from "../types";
 import type CSCAuth from "../auth";
-import SDKResponseException from "../types/error/sdk_response_exception";
+import FailedToGetCredential from "../types/error/failed_to_get_credential";
+import APIError from "../types/error/api_error";
 
 export default class Client {
   private backendURI = "https://api.csc.deershark.com/api";
@@ -90,10 +91,7 @@ export default class Client {
   ): Promise<RequestInit> {
     const authenticationHeader = await auth.getAuthenticationHeader();
 
-    if (!authenticationHeader)
-      throw new SDKResponseException(
-        "Failed to create an authenticated request."
-      );
+    if (!authenticationHeader) throw new FailedToGetCredential();
 
     return {
       ...init,
@@ -144,17 +142,10 @@ export default class Client {
     if (parsedResponse instanceof ValidationError) {
       const parsedError = StandardErrorResponseSchema.try(response);
 
-      if (parsedError instanceof ValidationError) {
-        throw parsedError;
-      }
-
-      if (parsedError.message) {
-        throw new Error(parsedError.message);
-      } else if (parsedError.error) {
-        throw new Error(parsedError.error);
-      } else {
-        throw parsedResponse;
-      }
+      if (parsedError instanceof ValidationError) throw parsedError;
+      else if (parsedError.message) throw new APIError(parsedError.message);
+      else if (parsedError.error) throw new APIError(parsedError.error);
+      else throw parsedResponse;
     }
 
     return parsedResponse;
@@ -170,7 +161,7 @@ export default class Client {
     // (status in the range 200-299) or not.
     //
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/ok
-    return !(statusCode < 200 || statusCode >= 300);
+    return statusCode >= 200 && statusCode <= 299;
   }
 }
 
