@@ -1,1 +1,1 @@
-{"version":3,"file":"sync_course_members.d.ts","sourceRoot":"","sources":["../../../src/logic/course/sync_course_members.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAGtC;;GAEG;AACH,wBAA8B,iBAAiB,CAC7C,QAAQ,EAAE,MAAM,EAChB,IAAI,EAAE,OAAO,oBAQd"}
+{"version":3,"file":"sync_course_members.d.ts","sourceRoot":"","sources":["../../../src/logic/course/sync_course_members.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAGtC;;GAEG;AACH,wBAA8B,iBAAiB,CAC7C,QAAQ,EAAE,MAAM,EAChB,IAAI,EAAE,OAAO,GACZ,OAAO,CAAC,OAAO,CAAC,CAOlB"}

@@ -1,6 +1,16 @@
 "use strict";
+/**
+ * The types as well as schemas of this SDK.
+ *
+ * TypeDoc can't handle the JSDoc in the object well. We recommended you
+ * read the documentation of fields in the source code.
+ *
+ * We use `myzod` for validation and type generation.
+ *
+ * @module
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrgInfoResponseSchema = exports.CheckinResponseSchema = exports.TeacherCheckinListResponseSchema = exports.TeacherCheckinResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
+exports.OrgInfoResponseSchema = exports.CheckinResponseSchema = exports.TeacherCheckinListResponseSchema = exports.StudentCheckinInfoResponseSchema = exports.StandardErrorResponseSchema = exports.ShareResponseSchema = exports.GClassroomListResponseSchema = exports.GClassroomResponseSchema = exports.CourseListResponseSchema = exports.CourseResponseSchema = exports.CreateCourseRequestSchema = exports.CheckinState = exports.AuthUserResponseSchema = exports.AuthTokenResponseSchema = exports.AuthTokenRequestSchema = exports.AuthIdentRequestSchema = void 0;
 const req_auth_ident_1 = require("./auth/req_auth_ident");
 Object.defineProperty(exports, "AuthIdentRequestSchema", { enumerable: true, get: function () { return req_auth_ident_1.AuthIdentRequestSchema; } });
 const req_auth_token_1 = require("./auth/req_auth_token");
@@ -28,6 +38,6 @@ Object.defineProperty(exports, "StandardErrorResponseSchema", { enumerable: true
 const resp_checkin_1 = require("./student/resp_checkin");
 Object.defineProperty(exports, "CheckinResponseSchema", { enumerable: true, get: function () { return resp_checkin_1.CheckinResponseSchema; } });
 const resp_checkin_list_1 = require("./teacher/resp_checkin_list");
-Object.defineProperty(exports, "TeacherCheckinResponseSchema", { enumerable: true, get: function () { return resp_checkin_list_1.TeacherCheckinResponseSchema; } });
+Object.defineProperty(exports, "StudentCheckinInfoResponseSchema", { enumerable: true, get: function () { return resp_checkin_list_1.StudentCheckinInfoResponseSchema; } });
 Object.defineProperty(exports, "TeacherCheckinListResponseSchema", { enumerable: true, get: function () { return resp_checkin_list_1.TeacherCheckinListResponseSchema; } });
 //# sourceMappingURL=index.js.map

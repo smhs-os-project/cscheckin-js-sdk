@@ -31,7 +31,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importStar(require("../../request/client"));
 const types_1 = require("../../types");
 /**
- * Get the Google OAuth2 client ID in the backend.
+ * Get the Google OAuth2 client ID for the Google login component
+ * from backend.
  */
 function GetClientId() {
     return __awaiter(this, void 0, void 0, function* () {

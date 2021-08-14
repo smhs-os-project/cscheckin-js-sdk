@@ -10,9 +10,4 @@ export declare const StandardErrorResponseSchema: import("myzod").ObjectType<{
     message: import("myzod").OptionalType<import("myzod").StringType>;
 }>;
 export declare type StandardErrorResponse = Infer<typeof StandardErrorResponseSchema>;
-export declare type WouldFail<T> = T | StandardErrorResponse | null;
-export declare const StdErrOrNull: (src: unknown) => {
-    error?: string | undefined;
-    message?: string | undefined;
-} | null;
 //# sourceMappingURL=std_error.d.ts.map

@@ -30,9 +30,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importStar(require("../../request/client"));
 /**
- * Revoke the access token
- *
- * @return Is it success?
+ * Revoke the credential.
  */
 function RevokeAccessToken(auth) {
     return __awaiter(this, void 0, void 0, function* () {

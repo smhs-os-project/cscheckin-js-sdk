@@ -1,1 +1,1 @@
-{"version":3,"file":"get_classrooms_list.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_classrooms_list.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;GAEG;AACH,wBAA8B,iBAAiB,CAAC,IAAI,EAAE,OAAO;;;KAO5D"}
+{"version":3,"file":"get_classrooms_list.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_classrooms_list.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AACtC,OAAO,KAAK,EAAE,sBAAsB,EAAE,MAAM,aAAa,CAAC;AAI1D;;GAEG;AACH,wBAA8B,iBAAiB,CAC7C,IAAI,EAAE,OAAO,GACZ,OAAO,CAAC,sBAAsB,CAAC,CAOjC"}

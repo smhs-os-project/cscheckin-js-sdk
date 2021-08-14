@@ -1,19 +1,7 @@
 import type CSCAuth from "../../auth";
+import type { AuthUserResponse } from "../../types";
 /**
- * Get the owner info by @param auth.
+ * Get the info of the credential owner.
  */
-export default function GetUserInfo(auth: CSCAuth): Promise<{
-    student?: {
-        number: string;
-        class: string;
-    } | undefined;
-    id: number;
-    google_user_id: string;
-    domain: string;
-    name: string;
-    email: string;
-    photo: string;
-    created_at: string;
-    updated_at: string;
-}>;
+export default function GetUserInfo(auth: CSCAuth): Promise<AuthUserResponse>;
 //# sourceMappingURL=get_user_info.d.ts.map

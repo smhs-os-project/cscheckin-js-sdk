@@ -29,11 +29,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importStar(require("../../request/client"));
-const resp_checkin_1 = require("../../types/student/resp_checkin");
+const types_1 = require("../../types");
+/**
+ * Check in the specified course.
+ */
 function Checkin(courseUUID, auth) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield client_1.clientInstance.jsonFetcher(`/checkin/${courseUUID}`, client_1.default.postJsonRequest({}, yield client_1.default.authRequest(auth)));
-        return client_1.default.responseParser(data, resp_checkin_1.CheckinResponseSchema);
+        return client_1.default.responseParser(data, types_1.CheckinResponseSchema);
     });
 }
 exports.default = Checkin;

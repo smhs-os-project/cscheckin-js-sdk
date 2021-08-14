@@ -1,1 +1,1 @@
-{"version":3,"file":"resp_share.js","sourceRoot":"","sources":["../../../src/types/course/resp_share.ts"],"names":[],"mappings":";;;;;;AACA,kDAA0B;AAEb,QAAA,mBAAmB,GAAG,eAAK,CAAC,MAAM,CAAC;IAC9C,IAAI,EAAE,eAAK,CAAC,MAAM,EAAE;CACrB,CAAC,CAAC"}
+{"version":3,"file":"resp_share.js","sourceRoot":"","sources":["../../../src/types/course/resp_share.ts"],"names":[],"mappings":";;;;;;AACA,kDAA0B;AAE1B;;GAEG;AACU,QAAA,mBAAmB,GAAG,eAAK,CAAC,MAAM,CAAC;IAC9C;;OAEG;IACH,IAAI,EAAE,eAAK,CAAC,MAAM,EAAE;CACrB,CAAC,CAAC"}

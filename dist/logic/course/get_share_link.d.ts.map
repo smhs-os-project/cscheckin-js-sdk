@@ -1,1 +1,1 @@
-{"version":3,"file":"get_share_link.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_share_link.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AAItC;;GAEG;AACH,wBAA8B,YAAY,CAAC,QAAQ,EAAE,MAAM,EAAE,IAAI,EAAE,OAAO;;GAOzE"}
+{"version":3,"file":"get_share_link.d.ts","sourceRoot":"","sources":["../../../src/logic/course/get_share_link.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,YAAY,CAAC;AACtC,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,aAAa,CAAC;AAIjD;;GAEG;AACH,wBAA8B,YAAY,CACxC,QAAQ,EAAE,MAAM,EAChB,IAAI,EAAE,OAAO,GACZ,OAAO,CAAC,aAAa,CAAC,CAOxB"}

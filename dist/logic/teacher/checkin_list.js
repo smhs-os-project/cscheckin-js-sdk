@@ -30,6 +30,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const types_1 = require("../../types");
 const client_1 = __importStar(require("../../request/client"));
+/**
+ * Get the students list as well as their checkin status.
+ */
 function CheckinList(courseId, auth) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield client_1.clientInstance.jsonFetcher(`/checkin/${courseId}`, yield client_1.default.authRequest(auth));

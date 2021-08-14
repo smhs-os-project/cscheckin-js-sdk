@@ -26,21 +26,41 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.clientInstance = void 0;
 const myzod_1 = require("myzod");
 const types_1 = require("../types");
-const error_handler_1 = __importDefault(require("../utilities/error_handler"));
-const sdk_response_exception_1 = __importDefault(require("../types/error/sdk_response_exception"));
+const failed_to_get_credential_1 = __importDefault(require("../types/error/failed_to_get_credential"));
+const api_error_1 = __importDefault(require("../types/error/api_error"));
+/**
+ * The client for requesting, with some API utilities.
+ */
 class Client {
     constructor() {
+        /**
+         * The backend API url to request.
+         * @private
+         */
         this.backendURI = "https://api.csc.deershark.com/api";
     }
+    /**
+     * Get the singleton instance of this client.
+     */
     static getInstance() {
         if (!Client.instance) {
             Client.instance = new Client();
         }
         return Client.instance;
     }
+    /**
+     * Get the backend API endpoint.
+     *
+     * @constructor
+     */
     get BackendURI() {
         return this.backendURI;
     }
+    /**
+     * Set the backend API endpoint.
+     *
+     * @constructor
+     */
     set BackendURI(uri) {
         this.backendURI = uri;
     }
@@ -94,7 +114,7 @@ class Client {
         return __awaiter(this, void 0, void 0, function* () {
             const authenticationHeader = yield auth.getAuthenticationHeader();
             if (!authenticationHeader)
-                throw new sdk_response_exception_1.default("Failed to create an authenticated request.");
+                throw new failed_to_get_credential_1.default();
             return Object.assign(Object.assign({}, init), { headers: Object.assign(Object.assign({}, headers), { Authorization: authenticationHeader }) });
         });
     }
@@ -122,22 +142,14 @@ class Client {
         const parsedResponse = schema.try(response);
         if (parsedResponse instanceof myzod_1.ValidationError) {
             const parsedError = types_1.StandardErrorResponseSchema.try(response);
-            if (parsedError instanceof myzod_1.ValidationError) {
-                error_handler_1.default(parsedError);
+            if (parsedError instanceof myzod_1.ValidationError)
                 throw parsedError;
-            }
-            if (parsedError.message) {
-                error_handler_1.default(parsedError.message);
-                throw new Error(parsedError.message);
-            }
-            else if (parsedError.error) {
-                error_handler_1.default(parsedError.error);
-                throw new Error(parsedError.error);
-            }
-            else {
-                error_handler_1.default(parsedResponse);
+            else if (parsedError.message)
+                throw new api_error_1.default(parsedError.message);
+            else if (parsedError.error)
+                throw new api_error_1.default(parsedError.error);
+            else
                 throw parsedResponse;
-            }
         }
         return parsedResponse;
     }
@@ -151,7 +163,7 @@ class Client {
         // (status in the range 200-299) or not.
         //
         // https://developer.mozilla.org/en-US/docs/Web/API/Response/ok
-        return !(statusCode < 200 || statusCode >= 300);
+        return statusCode >= 200 && statusCode <= 299;
     }
 }
 exports.default = Client;

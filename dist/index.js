@@ -1,35 +1,38 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+/**
+ * The main entry of this SDK.
+ *
+ * We generated this with the powerful TypeDoc!
+ *
+ * @module
+ */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtractCheckinState = exports.isBefore = exports.isAfter = exports.CheckinList = exports.Checkin = exports.SyncCourseMembers = exports.ShareToClassroom = exports.GetShareLink = exports.GetCoursesList = exports.GetCourseByID = exports.GetCourseByUUID = exports.GetClassroomsList = exports.GetClientId = exports.CreateCourse = exports.CloseCourse = void 0;
-const get_client_id_1 = __importDefault(require("./logic/auth/get_client_id"));
-exports.GetClientId = get_client_id_1.default;
-const close_course_1 = __importDefault(require("./logic/course/close_course"));
-exports.CloseCourse = close_course_1.default;
-const create_course_1 = __importDefault(require("./logic/course/create_course"));
-exports.CreateCourse = create_course_1.default;
-const get_classrooms_list_1 = __importDefault(require("./logic/course/get_classrooms_list"));
-exports.GetClassroomsList = get_classrooms_list_1.default;
-const get_course_1 = require("./logic/course/get_course");
-Object.defineProperty(exports, "GetCourseByUUID", { enumerable: true, get: function () { return get_course_1.GetCourseByUUID; } });
-Object.defineProperty(exports, "GetCourseByID", { enumerable: true, get: function () { return get_course_1.GetCourseByID; } });
-const get_courses_list_1 = __importDefault(require("./logic/course/get_courses_list"));
-exports.GetCoursesList = get_courses_list_1.default;
-const get_share_link_1 = __importDefault(require("./logic/course/get_share_link"));
-exports.GetShareLink = get_share_link_1.default;
-const share_to_classroom_1 = __importDefault(require("./logic/course/share_to_classroom"));
-exports.ShareToClassroom = share_to_classroom_1.default;
-const sync_course_members_1 = __importDefault(require("./logic/course/sync_course_members"));
-exports.SyncCourseMembers = sync_course_members_1.default;
-const checkin_1 = __importDefault(require("./logic/student/checkin"));
-exports.Checkin = checkin_1.default;
-const checkin_list_1 = __importDefault(require("./logic/teacher/checkin_list"));
-exports.CheckinList = checkin_list_1.default;
-const extract_course_status_1 = __importDefault(require("./utilities/extract_course_status"));
-exports.ExtractCheckinState = extract_course_status_1.default;
-const is_after_1 = require("./utilities/is_after");
-Object.defineProperty(exports, "isAfter", { enumerable: true, get: function () { return is_after_1.isAfter; } });
-Object.defineProperty(exports, "isBefore", { enumerable: true, get: function () { return is_after_1.isBefore; } });
+exports.Utilities = exports.Types = exports.RequestClient = exports.Auth = void 0;
+exports.Auth = __importStar(require("./auth"));
+__exportStar(require("./logic"), exports);
+exports.RequestClient = __importStar(require("./request/client"));
+exports.Types = __importStar(require("./types"));
+exports.Utilities = __importStar(require("./utilities"));
 //# sourceMappingURL=index.js.map

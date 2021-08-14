@@ -1,11 +1,36 @@
+/**
+ * The class and methods related to HTTP requests.
+ *
+ * @module
+ */
 import type { AnyType } from "myzod/libs/types";
 import type { Infer } from "myzod";
 import type CSCAuth from "../auth";
+/**
+ * The client for requesting, with some API utilities.
+ */
 export default class Client {
+    /**
+     * The backend API url to request.
+     * @private
+     */
     private backendURI;
     private static instance;
+    /**
+     * Get the singleton instance of this client.
+     */
     static getInstance(): Client;
+    /**
+     * Get the backend API endpoint.
+     *
+     * @constructor
+     */
     get BackendURI(): string;
+    /**
+     * Set the backend API endpoint.
+     *
+     * @constructor
+     */
     set BackendURI(uri: string);
     /**
      * A basic fetcher for this SDK and Vercel SWR.

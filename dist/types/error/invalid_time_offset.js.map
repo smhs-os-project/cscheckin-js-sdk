@@ -1,0 +1,1 @@
+{"version":3,"file":"invalid_time_offset.js","sourceRoot":"","sources":["../../../src/types/error/invalid_time_offset.ts"],"names":[],"mappings":";;AAAA,MAAqB,iBAAkB,SAAQ,KAAK;IAClD,YAAmB,MAAc;QAC/B,KAAK,CAAC,6CAA6C,MAAM,EAAE,CAAC,CAAC;QAD5C,WAAM,GAAN,MAAM,CAAQ;QAE/B,IAAI,CAAC,IAAI,GAAG,mBAAmB,CAAC;IAClC,CAAC;CACF;AALD,oCAKC"}

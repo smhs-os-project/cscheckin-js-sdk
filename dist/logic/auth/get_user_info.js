@@ -31,7 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const types_1 = require("../../types");
 const client_1 = __importStar(require("../../request/client"));
 /**
- * Get the owner info by @param auth.
+ * Get the info of the credential owner.
  */
 function GetUserInfo(auth) {
     return __awaiter(this, void 0, void 0, function* () {
