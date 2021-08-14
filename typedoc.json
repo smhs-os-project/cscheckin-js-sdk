@@ -1,0 +1,11 @@
+{
+  "entryPoints": [
+    "src/index.ts",
+    "src/logic/index.ts",
+    "src/utilities/index.ts",
+    "src/types/index.ts",
+    "src/request/client.ts",
+    "src/auth.ts"
+  ],
+  "out": "docs"
+}

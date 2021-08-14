@@ -1,6 +1,6 @@
 import type { Infer } from "myzod";
 import myzod from "myzod";
-import { timePlusPattern } from "../../utilities/is_after";
+import { timeOffsetPattern } from "../../utilities";
 
 /**
  * The schema of the course.
@@ -31,13 +31,13 @@ export const CourseResponseSchema = myzod.object({
    *
    * @see CreateCourseRequestSchema
    */
-  late_time: myzod.string().pattern(timePlusPattern),
+  late_time: myzod.string().pattern(timeOffsetPattern),
   /**
    * How long will this course be closed?
    *
    * @see CreateCourseRequestSchema
    */
-  expire_time: myzod.string().pattern(timePlusPattern),
+  expire_time: myzod.string().pattern(timeOffsetPattern),
   /**
    * The UUID of this course.
    */

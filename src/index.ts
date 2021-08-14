@@ -1,31 +1,13 @@
-import GetClientId from "./logic/auth/get_client_id";
-import CloseCourse from "./logic/course/close_course";
-import CreateCourse from "./logic/course/create_course";
-import GetClassroomsList from "./logic/course/get_classrooms_list";
-import { GetCourseByUUID, GetCourseByID } from "./logic/course/get_course";
-import GetCoursesList from "./logic/course/get_courses_list";
-import GetShareLink from "./logic/course/get_share_link";
-import ShareToClassroom from "./logic/course/share_to_classroom";
-import SyncCourseMembers from "./logic/course/sync_course_members";
-import Checkin from "./logic/student/checkin";
-import CheckinList from "./logic/teacher/checkin_list";
-import ExtractCheckinState from "./utilities/extract_course_status";
-import { isAfter, isBefore } from "./utilities/is_after";
+/**
+ * The main entry of this SDK.
+ *
+ * We generated this with the powerful TypeDoc!
+ *
+ * @module
+ */
 
-export {
-  CloseCourse,
-  CreateCourse,
-  GetClientId,
-  GetClassroomsList,
-  GetCourseByUUID,
-  GetCourseByID,
-  GetCoursesList,
-  GetShareLink,
-  ShareToClassroom,
-  SyncCourseMembers,
-  Checkin,
-  CheckinList,
-  isAfter,
-  isBefore,
-  ExtractCheckinState,
-};
+export * as Auth from "./auth";
+export * from "./logic";
+export * as RequestClient from "./request/client";
+export * as Types from "./types";
+export * as Utilities from "./utilities";

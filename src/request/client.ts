@@ -1,3 +1,8 @@
+/**
+ * The class and methods related to HTTP requests.
+ *
+ * @module
+ */
 import type { AnyType } from "myzod/libs/types";
 import type { Infer } from "myzod";
 import { ValidationError } from "myzod";
@@ -6,11 +11,21 @@ import type CSCAuth from "../auth";
 import FailedToGetCredential from "../types/error/failed_to_get_credential";
 import APIError from "../types/error/api_error";
 
+/**
+ * The client for requesting, with some API utilities.
+ */
 export default class Client {
+  /**
+   * The backend API url to request.
+   * @private
+   */
   private backendURI = "https://api.csc.deershark.com/api";
 
   private static instance: Client | null = null;
 
+  /**
+   * Get the singleton instance of this client.
+   */
   public static getInstance(): Client {
     if (!Client.instance) {
       Client.instance = new Client();
@@ -19,10 +34,20 @@ export default class Client {
     return Client.instance;
   }
 
+  /**
+   * Get the backend API endpoint.
+   *
+   * @constructor
+   */
   public get BackendURI() {
     return this.backendURI;
   }
 
+  /**
+   * Set the backend API endpoint.
+   *
+   * @constructor
+   */
   public set BackendURI(uri: string) {
     this.backendURI = uri;
   }

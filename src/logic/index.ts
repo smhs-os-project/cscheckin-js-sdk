@@ -1,3 +1,14 @@
+/**
+ * The operation methods (logic) of this SDK.
+ *
+ * You can operate the Backend API with the methods below this category.
+ * You would need to obtain a CSCAuth object for the authenticated request.
+ *
+ * Some types marked as `any[]` is mis-determined.
+ * You can see the source code for the exact type.
+ *
+ * @module
+ */
 import CheckinList from "./teacher/checkin_list";
 import Checkin from "./student/checkin";
 import SyncCourseMembers from "./course/sync_course_members";

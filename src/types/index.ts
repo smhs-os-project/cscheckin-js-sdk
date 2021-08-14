@@ -1,3 +1,14 @@
+/**
+ * The types as well as schemas of this SDK.
+ *
+ * TypeDoc can't handle the JSDoc in the object well. We recommended you
+ * read the documentation of fields in the source code.
+ *
+ * We use `myzod` for validation and type generation.
+ *
+ * @module
+ */
+
 import {
   AuthIdentRequestSchema,
   AuthIdentRequest,
