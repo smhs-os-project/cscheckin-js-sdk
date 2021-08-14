@@ -10,7 +10,7 @@ import GetCoursesList from "./course/get_courses_list";
 import GetShareLink from "./course/get_share_link";
 import ShareToClassroom from "./course/share_to_classroom";
 
-export default {
+export {
   GetClientId,
   CloseCourse,
   CreateCourse,
