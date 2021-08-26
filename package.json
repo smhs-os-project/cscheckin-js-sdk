@@ -6,15 +6,18 @@
   "author": "pan93412",
   "main": "dist/index.js",
   "dependencies": {
+    "core-js": "3",
     "dayjs": "^1.10.6",
     "myzod": "^1.8.5",
     "node-fetch": "^2.6.1"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && swc src -d dist",
     "docs": "typedoc"
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.49",
+    "@swc/core": "^1.2.82",
     "@types/jest": "^27.0.1",
     "@types/node-fetch": "^2.5.12",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
@@ -28,5 +31,10 @@
     "ts-jest": "^27.0.5",
     "typedoc": "^0.21.6",
     "typescript": "^4.3.5"
-  }
+  },
+  "browserslist": [
+    "last 3 major version",
+    ">0.01%",
+    ">0.005% in tw"
+  ]
 }
