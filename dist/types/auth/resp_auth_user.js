@@ -1,1 +1,2 @@
 import a from"myzod";import{AuthIdentRequestSchema as b}from"./req_auth_ident";export var AuthUserResponseSchema=a.object({id:a.number(),google_user_id:a.string(),domain:a.string(),name:a.string(),email:a.string(),photo:a.string(),created_at:a.string(),updated_at:a.string(),student:b.optional()})
+//# sourceMappingURL=resp_auth_user.js.map

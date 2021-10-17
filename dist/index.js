@@ -1,1 +1,2 @@
 import*as a from"./auth";import*as b from"./request/client";import*as c from"./types";import*as d from"./utilities";export{a as Auth};export*from"./logic";export{b as RequestClient};export{c as Types};export{d as Utilities}
+//# sourceMappingURL=index.js.map

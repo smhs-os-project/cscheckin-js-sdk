@@ -1,1 +1,2 @@
 import a from"myzod";import{timeOffsetPattern as b}from"../../utilities";export var CourseResponseSchema=a.object({id:a.number(),google_classroom_id:a.string(),name:a.string(),teacher_id:a.number(),start_timestamp:a.date(),late_time:a.string().pattern(b),expire_time:a.string().pattern(b),uuid:a.string(),created_at:a.string(),updated_at:a.string()});export var CourseListResponseSchema=a.array(CourseResponseSchema)
+//# sourceMappingURL=resp_course.js.map

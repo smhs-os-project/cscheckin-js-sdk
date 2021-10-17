@@ -1,1 +1,2 @@
 import"core-js/modules/es.array.concat";import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import a,{clientInstance as b}from"../../request/client";import{OrgInfoResponseSchema as c}from"../../types";export default async function GetClientId(){var d=(await b.jsonFetcher("/info/".concat("common"),{})).data;return a.responseParser(d,c)}
+//# sourceMappingURL=get_client_id.js.map

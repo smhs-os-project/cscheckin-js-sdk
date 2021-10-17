@@ -1,1 +1,2 @@
 var CheckinState,CheckinState1;(CheckinState1=CheckinState||(CheckinState={})).NOT_CHECKED_IN="NOT_CHECKED_IN",CheckinState1.ON_TIME="ON_TIME",CheckinState1.LATE="LATE";export default{CheckinState:CheckinState}
+//# sourceMappingURL=checkin_state.js.map

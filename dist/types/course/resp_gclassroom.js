@@ -1,1 +1,2 @@
 import a from"myzod";export var GClassroomResponseSchema=a.object({google_classroom_id:a.string(),name:a.string()});export var GClassroomListResponseSchema=a.array(GClassroomResponseSchema)
+//# sourceMappingURL=resp_gclassroom.js.map

@@ -1,1 +1,2 @@
 import a from"myzod";import{CheckinState as b}from"../common/checkin_state";export var CheckinResponseSchema=a.object({course_id:a.number(),id:a.number(),state:a.enum(b),student_id:a.number(),created_at:a.date().or(a.string()),updated_at:a.date().or(a.string())})
+//# sourceMappingURL=resp_checkin.js.map

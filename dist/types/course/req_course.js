@@ -1,1 +1,2 @@
 import a from"myzod";import{timeOffsetPattern as b}from"../../utilities";export var CreateCourseRequestSchema=a.object({start_timestamp:a.date(),late_time:a.string().pattern(b),expire_time:a.string().pattern(b)})
+//# sourceMappingURL=req_course.js.map

@@ -1,1 +1,2 @@
 import"core-js/modules/es.array.concat";import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{ShareResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function GetShareLink(d,e){var f=(await c.jsonFetcher("/course/share/".concat(d),await b.authRequest(e))).data;return b.responseParser(f,a)}
+//# sourceMappingURL=get_share_link.js.map

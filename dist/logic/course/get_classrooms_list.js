@@ -1,1 +1,2 @@
 import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{GClassroomListResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function GetClassroomsList(d){var e=(await c.jsonFetcher("/course/google",await b.authRequest(d))).data;return b.responseParser(e,a)}
+//# sourceMappingURL=get_classrooms_list.js.map

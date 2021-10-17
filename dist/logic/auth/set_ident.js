@@ -1,1 +1,2 @@
 import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import a,{clientInstance as b}from"../../request/client";export default async function SetIdentity(c,d){var e=(await b.textFetcher("/auth/student",a.postJsonRequest(c,await a.authRequest(d)))).statusCode;return a.isResponseOk(null!=e?e:-1)}
+//# sourceMappingURL=set_ident.js.map

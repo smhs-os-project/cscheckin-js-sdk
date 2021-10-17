@@ -1,1 +1,2 @@
 import"core-js/modules/es.array.concat";import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{AuthTokenResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function GetAccessToken(d){var e=(await c.jsonFetcher("/auth/token/".concat("common"),b.postJsonRequest(d))).data;return b.responseParser(e,a)}
+//# sourceMappingURL=get_access_token.js.map

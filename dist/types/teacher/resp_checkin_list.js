@@ -1,1 +1,2 @@
 import a from"myzod";import{CheckinState as b}from"../common/checkin_state";export var StudentCheckinInfoResponseSchema=a.object({checkin_id:a.number(),state:a.enum(b),created_at:a.date().or(a.string()),name:a.string(),"class":a.string(),number:a.string()});export var TeacherCheckinListResponseSchema=a.array(StudentCheckinInfoResponseSchema)
+//# sourceMappingURL=resp_checkin_list.js.map

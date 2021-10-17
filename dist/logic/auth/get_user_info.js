@@ -1,1 +1,2 @@
 import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{AuthUserResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function GetUserInfo(d){var e=(await c.jsonFetcher("/auth/user",await b.authRequest(d))).data;return b.responseParser(e,a)}
+//# sourceMappingURL=get_user_info.js.map

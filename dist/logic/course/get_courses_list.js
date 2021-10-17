@@ -1,1 +1,2 @@
 import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{CourseListResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function GetCoursesList(d){var e=(await c.jsonFetcher("/course",await b.authRequest(d))).data;return b.responseParser(e,a)}
+//# sourceMappingURL=get_courses_list.js.map

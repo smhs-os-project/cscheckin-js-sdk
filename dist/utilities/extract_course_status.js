@@ -1,1 +1,2 @@
 import{CheckinState as a}from"../types/common/checkin_state";import{isBefore as b}from"./is_after";export default function ExtractCourseState(c){return b(c.start_timestamp,c.expire_time)?a.NOT_CHECKED_IN:b(c.start_timestamp,c.late_time)?a.LATE:a.ON_TIME}
+//# sourceMappingURL=extract_course_status.js.map

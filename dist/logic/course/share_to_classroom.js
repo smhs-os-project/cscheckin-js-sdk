@@ -1,1 +1,2 @@
 import"core-js/modules/es.array.concat";import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{ShareResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function ShareToClassroom(d,e){var f=(await c.jsonFetcher("/course/share/".concat(d,"/post"),b.postJsonRequest({},await b.authRequest(e)))).data;return b.responseParser(f,a)}
+//# sourceMappingURL=share_to_classroom.js.map

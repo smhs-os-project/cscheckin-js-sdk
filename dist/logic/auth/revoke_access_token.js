@@ -1,1 +1,2 @@
 import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import a,{clientInstance as b}from"../../request/client";export default async function RevokeAccessToken(c){var d=(await b.textFetcher("/auth/token",await a.authRequest(c,{method:"DELETE"}))).statusCode;return a.isResponseOk(null!=d?d:-1)}
+//# sourceMappingURL=revoke_access_token.js.map

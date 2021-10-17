@@ -1,1 +1,2 @@
 import"core-js/modules/es.date.to-string";import"core-js/modules/es.date.to-iso-string";import{getAddedTime as a}from"./is_after";describe("getAddedTime",function(){it("2001-1-1 12:00:00 + 03:15:17 = 2001-1-1 15:15:17",function(){expect(a(new Date(Date.UTC(2001,0,1,12,0,0)),"03:15:17").toISOString()).toBe("2001-01-01T15:15:17.000Z")}),it("2001-1-1 12:00:00 + 12:00:00 = 2001-1-2 00:00:00",function(){expect(a(new Date(Date.UTC(2001,0,1,12,0,0)),"12:00:00").toISOString()).toBe("2001-01-02T00:00:00.000Z")})})
+//# sourceMappingURL=is_after.test.js.map

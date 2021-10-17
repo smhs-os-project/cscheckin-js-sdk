@@ -1,1 +1,2 @@
 import"core-js/modules/es.array.concat";import"core-js/modules/es.promise";import"core-js/modules/es.object.to-string";import{TeacherCheckinListResponseSchema as a}from"../../types";import b,{clientInstance as c}from"../../request/client";export default async function CheckinList(d,e){var f=(await c.jsonFetcher("/checkin/".concat(d),await b.authRequest(e))).data;return b.responseParser(f,a)}
+//# sourceMappingURL=checkin_list.js.map
