@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "tsc && swc src -d dist",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "test": "jest"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.51",
