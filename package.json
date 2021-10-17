@@ -6,31 +6,31 @@
   "author": "pan93412",
   "main": "dist/index.js",
   "dependencies": {
-    "core-js": "3",
-    "dayjs": "^1.10.6",
-    "myzod": "^1.8.5",
-    "node-fetch": "^2.6.1"
+    "core-js": "^3.18.3",
+    "dayjs": "^1.10.7",
+    "myzod": "^1.8.6"
   },
   "scripts": {
     "build": "tsc && swc src -d dist",
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.49",
-    "@swc/core": "^1.2.82",
-    "@types/jest": "^27.0.1",
-    "@types/node-fetch": "^2.5.12",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^14.0.0",
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.98",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^27.0.6",
-    "prettier": "^2.3.2",
-    "ts-jest": "^27.0.5",
-    "typedoc": "^0.21.6",
-    "typescript": "^4.3.5"
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.5",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "typedoc": "^0.22.5",
+    "typescript": "^4.4.4"
   },
   "browserslist": [
     "last 3 major version",
