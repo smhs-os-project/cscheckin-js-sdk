@@ -1,2 +1,2 @@
-import a from"myzod";export var ShareResponseSchema=a.object({link:a.string()})
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.ShareResponseSchema=void 0;var _myzod=_interopRequireDefault(require("myzod"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var ShareResponseSchema=_myzod.default.object({link:_myzod.default.string()});exports.ShareResponseSchema=ShareResponseSchema
 //# sourceMappingURL=resp_share.js.map

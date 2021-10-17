@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../src/types/common/checkin_state.ts"],"names":["CheckinState"],"mappings":"iBAGY,aAAY,EAAZ,aAAY,CAAZ,YAAY,GAAZ,YAAY,MAKtB,cAAc,CAAd,CAAc,gBALJ,aAAY,CAUtB,OAAO,CAAP,CAAO,SAVG,aAAY,CAetB,IAAI,CAAJ,CAAI,MAGN,MAAM,QAAS,CAAC,AACd,YAAY,CAAZ,YAAY,AACd,CAAC"}
+{"version":3,"sources":["../../../src/types/common/checkin_state.ts"],"names":["CheckinState"],"mappings":"iBAGY,aAAY,wIAAZ,aAAY,CAAZ,aAAY,wBAAZ,aAAY,MAKtB,cAAc,CAAd,CAAc,gBALJ,aAAY,CAUtB,OAAO,CAAP,CAAO,SAVG,aAAY,CAetB,IAAI,CAAJ,CAAI,iCAGS,CAAC,AACd,YAAY,CAAZ,aAAY,AACd,CAAC"}

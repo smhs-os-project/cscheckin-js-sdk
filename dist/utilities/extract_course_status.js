@@ -1,2 +1,2 @@
-import{CheckinState as a}from"../types/common/checkin_state";import{isBefore as b}from"./is_after";export default function ExtractCourseState(c){return b(c.start_timestamp,c.expire_time)?a.NOT_CHECKED_IN:b(c.start_timestamp,c.late_time)?a.LATE:a.ON_TIME}
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=ExtractCourseState;var _checkinState=require("../types/common/checkin_state"),_isAfter=require("./is_after");function ExtractCourseState(a){return _isAfter.isBefore(a.start_timestamp,a.expire_time)?_checkinState.CheckinState.NOT_CHECKED_IN:_isAfter.isBefore(a.start_timestamp,a.late_time)?_checkinState.CheckinState.LATE:_checkinState.CheckinState.ON_TIME}
 //# sourceMappingURL=extract_course_status.js.map

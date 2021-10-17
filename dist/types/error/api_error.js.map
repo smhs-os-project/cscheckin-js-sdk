@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../src/types/error/api_error.ts"],"names":["APIError","constructor","message","name","Error"],"mappings":"AAGA,MAAM,6uEAAe,QAAQ,CAAd,QAAQ,0BAAF,QAAQ,CACf,CAAe,oCADR,QAAQ,qDAAR,QAAQ,YAEnB,CAAO,IACR,IAAI,CAAG,CAAU,6BAHL,QAAQ,IAAR,QAAQ,mBAAS,KAAK,GAA3C,MAAM,CAAe,QAAQ"}
+{"version":3,"sources":["../../../src/types/error/api_error.ts"],"names":["APIError","constructor","message","name","Error"],"mappings":"i1EAGqB,QAAQ,CAAd,QAAQ,0BAAF,QAAQ,CACf,CAAe,oCADR,QAAQ,qDAAR,QAAQ,YAEnB,CAAO,IACR,IAAI,CAAG,CAAU,6BAHL,QAAQ,IAAR,QAAQ,mBAAS,KAAK,mBAAtB,QAAQ"}

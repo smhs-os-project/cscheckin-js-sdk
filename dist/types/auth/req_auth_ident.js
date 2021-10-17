@@ -1,2 +1,2 @@
-import a from"myzod";export var AuthIdentRequestSchema=a.object({"class":a.string(),number:a.string()})
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.AuthIdentRequestSchema=void 0;var _myzod=_interopRequireDefault(require("myzod"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var AuthIdentRequestSchema=_myzod.default.object({"class":_myzod.default.string(),number:_myzod.default.string()});exports.AuthIdentRequestSchema=AuthIdentRequestSchema
 //# sourceMappingURL=req_auth_ident.js.map

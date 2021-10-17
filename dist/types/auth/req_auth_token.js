@@ -1,2 +1,2 @@
-import a from"myzod";export var AuthTokenRequestSchema=a.object({id_token:a.string(),access_token:a.string()})
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.AuthTokenRequestSchema=void 0;var _myzod=_interopRequireDefault(require("myzod"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var AuthTokenRequestSchema=_myzod.default.object({id_token:_myzod.default.string(),access_token:_myzod.default.string()});exports.AuthTokenRequestSchema=AuthTokenRequestSchema
 //# sourceMappingURL=req_auth_token.js.map

@@ -1,2 +1,2 @@
-var CheckinState,CheckinState1;(CheckinState1=CheckinState||(CheckinState={})).NOT_CHECKED_IN="NOT_CHECKED_IN",CheckinState1.ON_TIME="ON_TIME",CheckinState1.LATE="LATE";export default{CheckinState:CheckinState}
+"use strict";var CheckinState1;Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=exports.CheckinState=void 0,exports.CheckinState=CheckinState4,(CheckinState1=CheckinState4||(exports.CheckinState=CheckinState4={})).NOT_CHECKED_IN="NOT_CHECKED_IN",CheckinState1.ON_TIME="ON_TIME",CheckinState1.LATE="LATE";var CheckinState4,_default={CheckinState:CheckinState4};exports.default=_default
 //# sourceMappingURL=checkin_state.js.map

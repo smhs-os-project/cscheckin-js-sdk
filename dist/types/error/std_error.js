@@ -1,2 +1,2 @@
-import a from"myzod";export var StandardErrorResponseSchema=a.object({error:a.string().optional(),message:a.string().optional()})
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.StandardErrorResponseSchema=void 0;var _myzod=_interopRequireDefault(require("myzod"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var StandardErrorResponseSchema=_myzod.default.object({error:_myzod.default.string().optional(),message:_myzod.default.string().optional()});exports.StandardErrorResponseSchema=StandardErrorResponseSchema
 //# sourceMappingURL=std_error.js.map

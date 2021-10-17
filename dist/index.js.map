@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/index.ts"],"names":["Auth","RequestClient","Types","Utilities"],"mappings":"UAQY,CAAI,KAAM,CAAQ,kBAElB,CAAa,KAAM,CAAkB,4BACrC,CAAK,KAAM,CAAS,mBACpB,CAAS,KAAM,CAAa,oBAJ5B,CAAI,IAAJ,IAAI,aACF,CAAS,gBACX,CAAa,IAAb,aAAa,SACb,CAAK,IAAL,KAAK,SACL,CAAS,IAAT,SAAS"}
+{"version":3,"sources":["../src/index.ts"],"names":["Auth","RequestClient","Types","Utilities"],"mappings":"gNAQY,GAAI,CAAJ,KAAI,4CAEJ,cAAa,sDACb,MAAK,6CACL,UAAS,6aAJT,IAAI,CAAJ,KAAI,SAEJ,aAAa,CAAb,cAAa,SACb,KAAK,CAAL,MAAK,SACL,SAAS,CAAT,UAAS"}
