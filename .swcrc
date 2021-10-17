@@ -13,6 +13,10 @@
       "mangle": true
     }
   },
+  "module": {
+    "type": "commonjs",
+    "strictMode": true
+  },
   "env": {
     "mode": "usage",
     "coreJs": 3
