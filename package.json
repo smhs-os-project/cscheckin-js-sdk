@@ -6,7 +6,7 @@
   "author": "pan93412",
   "main": "dist/index.js",
   "dependencies": {
-    "core-js": "^3.18.3",
+    "core-js": "^3.19.0",
     "dayjs": "^1.10.7",
     "myzod": "^1.8.6"
   },
