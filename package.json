@@ -31,7 +31,7 @@
     "prettier": "^2.5.1",
     "ts-jest": "^27.1.1",
     "typedoc": "^0.22.10",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.4"
   },
   "browserslist": [
     "last 3 major version",
